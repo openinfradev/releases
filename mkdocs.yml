@@ -49,6 +49,6 @@ markdown_extensions:
 #    - emoji_index: !!python/name:materialx.emoji.twemoji
 #    - emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
-  - Welcome: index.md
+  - Welcome: README.md
   - Release Notes: 
-    - releasenotes/README.md
+    - 1.0.0: releasenotes/README.md

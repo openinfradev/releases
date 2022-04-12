@@ -14,5 +14,5 @@ TKS의 주요 특징은 다음과 같다.
 
 ![TKS](./docs/assets/images/tksre21arch.png)
 
-[Wiki Page https://github.com/openinfradev/releases](https://github.com/openinfradev/releases)
+[Wiki Page https://openinfradev.github.io/releases/](https://openinfradev.github.io/releases/)
 

@@ -1,5 +1,5 @@
 
-# TKS(TACO Kubernetes Service)
+# SKT Container Platform
 
 SK테레콤은 가상화를 4G/5G에 선도적으로 적용해 왔고, 이를 위해 OpenStack과 같이 복잡한 Service를 효율적으로 관리하는 기술을 개발해 왔다.
 이러한 노력에 대한 결과물은 여러 사람들이 널리 이롭게 사용하도록 Open Source로 공개해 왔다.

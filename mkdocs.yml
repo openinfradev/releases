@@ -1,4 +1,4 @@
-site_name: Releases 
+site_name: TKS 
 repo_name: openinfradev/releases
 repo_url: https://github.com/openinfradev/releases
 theme:
@@ -49,6 +49,7 @@ markdown_extensions:
 #    - emoji_index: !!python/name:materialx.emoji.twemoji
 #    - emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
-  - Welcome: README.md
+
+  - Quick Start: quickstart/1-0-0.md
   - Release Notes: 
-    - 1.0.0: releasenotes/README.md
+    - 1.0.0: releasenotes/1-0-0.md

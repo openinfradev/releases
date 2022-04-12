@@ -53,7 +53,8 @@ nav:
   - Quick Start: quickstart/1-0-0.md
   - Release Notes: releasenotes/1-0-0.md
   - Architecture: 
-      - 'Overview': architecture/tksgitops.md
+      - 'Overview': architecture/overviewarch.md
+      - 'GitOps Architecture': architecture/tksgitops.md
       - 'AWS Ref. Architecture': architecture/awsarch.md
   - CLI manual (v0.1.2): 
       - 'Overview': cli/overview.md

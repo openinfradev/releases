@@ -5,12 +5,6 @@ Private githube page link: https://openinfradev.github.io/releases/
 ## Welcome to Releases (powered by github pages & mkdocs)
 
 
-이 페이지는 다음과 같은 내용을 담고 있습니다. 
-
-- Release Notes
-- Quick Start
-- How to Install / Deploy
-- ...
 
 
 ---

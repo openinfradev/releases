@@ -16,23 +16,35 @@ theme:
        icon: material/toggle-switch
        name: Switch to light mode
   features:
-    # - navigation.sections
     - navigation.indexes
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
     - toc.integrate       
     - content.code.annotate
     - content.tabs.link
-    # - header.autohide
-    # - navigation.expand
-    - navigation.instant
-    # - navigation.tabs
-    # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
+  highlightjs: true
+
 plugins:
   - search
+#  - awesome-pages
+#  - section-index
+#  - mike:
+#      # these fields are all optional; the defaults are as below...
+#      version_selector: true   # set to false to leave out the version selector
+#      css_dir: css             # the directory to put the version selector's CSS
+#      javascript_dir: js       # the directory to put the version selector's JS
+
+extra_css:
+    - assets/css/extra.css
+
 markdown_extensions:
   - admonition
   - codehilite
@@ -48,6 +60,8 @@ markdown_extensions:
   - pymdownx.tilde
 #    - emoji_index: !!python/name:materialx.emoji.twemoji
 #    - emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+      permalink: true
 nav:
   - Welcome: index.md
   - Quick Start: quickstart/1-0-0.md

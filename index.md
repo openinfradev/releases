@@ -14,10 +14,11 @@ Decapod는 ... 기술로, .. 을 제공한다.
 
 TKS는 Decapod 기술을 기반으로, Kubernetes Cluster와 Kubernetes를 운영하기 위한 Add-on (CNI, CSI, Ingress Controller등)과 서비스들(Monitoring, Service Mesh)을 All-in-One으로 제공하는 통합 컨테이너 관리 플랫폼이다.
 
-SKT Container Platform의 주요 특징은 다음과 같다.
+SKT Container Platform의 주요 특징은 다음과 같다.    
+
 - Hybrid, Multi Cloud 지원
-- All-in-One Package
-- CaaS (Container as a Service)
+-  All-in-One Package
+- CaaS(Container as a Service)
 
 ![TKS](./assets/images/tksre21arch.png)
 

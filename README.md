@@ -10,7 +10,8 @@ TKS는 Decapod를 Core기술로, Kubernetes Cluster와 Kubernetes를 운영하�
 > [What is a container ? - Docker](https://www.docker.com/resources/what-container/)
 > [What is a CaaS ? - RedHat](https://www.redhat.com/en/topics/cloud-computing/what-is-caas)
 
-TKS의 주요 특징은 다음과 같다.
+TKS의 주요 특징은 다음과 같다.   
+
 - Hybrid Cloud 지원
 - All-in-One Package
 - CaaS (Container as a Service)

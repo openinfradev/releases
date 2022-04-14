@@ -65,16 +65,16 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Quick Start: quickstart/1-0-0.md
-  - Release Notes: releasenotes/1-0-0.md
+  - Release Note: releasenotes/1-0-0.md
   - Architecture: 
       - 'Overview': architecture/overviewarch.md
       - 'GitOps Architecture': architecture/tksgitops.md
       - 'AWS Ref. Architecture': architecture/awsarch.md
-  - CLI manual (v0.1.2): 
+  - CLI manual: 
       - 'Overview': cli/overview.md
       - 'Installation': cli/install.md
       - 'Configuration': cli/configuration.md
       - Command:
         - 'tks cluster': cli/tks_cluster.md
         - 'tks service': cli/tks_service.md
-  - API manual: api/1-0-0.md 
+  - API Reference: api/1-0-0.md 

@@ -70,7 +70,7 @@ nav:
       - 'Overview': architecture/overviewarch.md
       - 'GitOps Architecture': architecture/tksgitops.md
       - 'AWS Ref. Architecture': architecture/awsarch.md
-  - CLI manual: 
+  - CLI Manual: 
       - 'Overview': cli/overview.md
       - 'Installation': cli/install.md
       - 'Configuration': cli/configuration.md

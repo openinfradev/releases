@@ -24,6 +24,7 @@ Flags:
       --config string   config file (default is $HOME/.tks-client.yaml)
   -h, --help            help for tks
   -t, --toggle          Help message for toggle
+  -v, --verbose         verbose output
 
 Use "tks [command] --help" for more information about a command.
 ```

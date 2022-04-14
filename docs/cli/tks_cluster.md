@@ -10,6 +10,7 @@ Usage:
 
 Available Commands:
   create      Create a TKS Cluster.
+  delete      Delete a TKS Cluster.
   list        Show list of clusters.
   show        Show cluster details.
 
@@ -18,8 +19,9 @@ Flags:
 
 Global Flags:
       --config string   config file (default is $HOME/.tks-client.yaml)
+  -v, --verbose         verbose output
 
-Use "tks cluster [command] --help" for more information about a command.
+Use "tks cluster [command] --help" for more information about a command
 ```
 
 ## tks cluster create
@@ -81,6 +83,7 @@ Flags:
 
 Global Flags:
       --config string   config file (default is $HOME/.tks-client.yaml)
+  -v, --verbose         verbose output
 ```
 
 ## tks cluster show
@@ -101,5 +104,6 @@ Flags:
 
 Global Flags:
       --config string   config file (default is $HOME/.tks-client.yaml)
+  -v, --verbose         verbose output
 ```
 

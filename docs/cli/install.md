@@ -2,7 +2,7 @@
 `tks`는 Linux, MAC, Windows 환경에 설치가능하다. tks github repo에서 바이너리를 다운로드 받거나 소스파일을 직접 빌드하여 설치한다.
 
 ## Github Repo에서 다운로드
-`tks` [github repo]의 릴리즈 페이지에서 사용하려는 시스템에 맞는 바이너리를 다운로드한다.
+`tks` [github repo](https://github.com/openinfradev/tks-client/)의 릴리즈 페이지에서 사용하려는 시스템에 맞는 바이너리를 다운로드한다.
 ```
 $ VERSION=1.0.0-rc1
 $ wget https://github.com/openinfradev/tks-client/releases/download/v${VERSION}/tks-client_${VERSION}_Linux_x86_64.tar.gz

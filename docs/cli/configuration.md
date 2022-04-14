@@ -29,10 +29,11 @@ tks-info        LoadBalancer    10.105.57.15    <TKS-INFO-EXTERNAL-IP>          
 
 ## .tks-client.yaml 설정
 
-TKS api 서비스 url과 contract id, csp id 값을 `${HOME}/.tks-config.yaml`로 설정한다.
+TKS api 서비스 url과 contract id, csp id 값을 `${HOME}/.tks-client.yaml`로 설정한다.
 
-```bash
-$ tee ~/.tks-config.yaml << EOF
+```
+
+$ tee ~/.tks-client.yaml << EOF
 
 tksClusterLcmUrl: <TKS-CLUSTER-LCM-EXTERNAL-IP>:9110
 

@@ -4,7 +4,7 @@
 ## Github Repo에서 다운로드
 `tks` [github repo](https://github.com/openinfradev/tks-client/)의 릴리즈 페이지에서 사용하려는 시스템에 맞는 바이너리를 다운로드한다.
 ```
-$ VERSION=1.0.0-rc1
+$ VERSION=2.0.0-rc2
 $ wget https://github.com/openinfradev/tks-client/releases/download/v${VERSION}/tks-client_${VERSION}_Linux_x86_64.tar.gz
 $ tar xvzf tks-client_${VERSION}_Linux_x86_64.tar.gz
 LICENSE

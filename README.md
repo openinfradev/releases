@@ -1,22 +1,41 @@
 
-# SKT Container Platform
+# SKT Container Platform Release Document
 
-SK테레콤은 가상화를 4G/5G에 선도적으로 적용해 왔고, 이를 위해 OpenStack과 같이 복잡한 Service를 효율적으로 관리하는 기술을 개발해 왔다.
-이러한 노력에 대한 결과물은 여러 사람들이 널리 이롭게 사용하도록 Open Source로 공개해 왔다.
-가장 대표적인 Open Source는 Decapod로 Decapod는 Open Source로 구성된 복잡한 Service를 Containerization를 통해 선언적으로 관리하는 GitOps CD pipeline이다.
+SKT Container Platform은 [Decapod][decapod] 기술을 기반으로, Kubernetes Cluster와 Kubernetes를 운영하기 위한 Add-on (CNI, CSI, Ingress Controller등), 그리고 다양한 서비스들(Monitoring, Service Mesh, App CICD, AI Ops등)을 All-in-One으로 제공하는 통합 컨테이너 관리 기능을 제공합니다.
 
-TKS는 Decapod를 Core기술로, Kubernetes Cluster와 Kubernetes를 운영하기 위한 Add-on (CNI, CSI, Ingress Controller등)과 필수 서비스들 (Monitoring, Service Mesh)를 All-in-One으로 제공하는 통합 컨테이너 관리 플랫폼이다.
+더 나아가서, 하이브리드 및 멀티 클라우드 환경에서 사용자들이 자신이 원하는 형태의 다양한 CaaS (Container as a Service)를 제공할 수 있는 서비스 플랫폼으로 진화해가고 있습니다.
+## Release Document
+Release 문서사이트는 다음과 같은 내용을 담고 있습니다.
 
-> [What is a container ? - Docker](https://www.docker.com/resources/what-container/)
-> [What is a CaaS ? - RedHat](https://www.redhat.com/en/topics/cloud-computing/what-is-caas)
+- Quick Start
+- Release Note
+- Architecture
+- CLI manual
+- API reference
 
-TKS의 주요 특징은 다음과 같다.   
+---
+## MKDocs
+This site is built with [MkDocs][mkdocs] using [material theme][material-theme],  [mike][mike], [awesome pages plugin][awesome-pages-plugin], and [Slate][slate].
 
-- Hybrid Cloud 지원
-- All-in-One Package
-- CaaS (Container as a Service)
+We also reference [RemoteCloud Document Site][remotecloud-docs] to set-up our document site.
 
-![TKS](https://github.com/openinfradev/tks-docs/blob/main/docs/assets/images/tksre21arch.png?raw=true)
+### MKDcos Getting Started
 
-WikiPage: https://openinfradev.github.io/releases/
+- Installation: https://www.mkdocs.org/getting-started/
+- Writing your docs: https://www.mkdocs.org/user-guide/writing-your-docs/
 
+### MKDocs Material format 
+
+Material for MkDocs is packed with many additional editing features. Please see the following link.
+
+- [mkdocs material format reference](https://squidfunk.github.io/mkdocs-material/reference/)
+
+
+
+[mkdocs]: https://github.com/mkdocs/mkdocs
+[material-theme]: https://squidfunk.github.io/mkdocs-material/
+[mike]: https://github.com/jimporter/mike
+[slate]: https://github.com/slatedocs/slate
+[awesome-pages-plugin]: https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+[remotecloud-docs]: https://github.com/RemoteCloud/public-documentation
+[decapod]: https://github.com/openinfradev/decapod-docs

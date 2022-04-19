@@ -4,6 +4,7 @@ repo_url: https://github.com/openinfradev/releases
 theme:
   language: kr
   name: material
+  logo: assets/taco_icon.png
   font:
     text: Noto Sans Korean  
   palette: 

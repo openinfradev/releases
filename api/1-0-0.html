@@ -1,0 +1,3454 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><style>body{width:60em;margin:1em auto;color:#222;font-family:"Ubuntu",sans-serif;padding-bottom:4em}h1{font-weight:normal;border-bottom:1px solid #aaa;padding-bottom:0.5ex}h2{border-bottom:1px solid #aaa;padding-bottom:0.5ex;margin:1.5em 0}h3{font-weight:normal;border-bottom:1px solid #aaa;padding-bottom:0.5ex}a{text-decoration:none;color:#567e25}table{width:100%;font-size:80%;border-collapse:collapse}thead{font-weight:700;background-color:#dcdcdc}td{border:1px solid #ccc;padding:0.5ex 2ex}td p{text-indent:1em;margin:0}.m_scalar-value-types-table tr{height:3em}#m_toc-container ul{list-style-type:none;padding-left:1em;line-height:180%;margin:0}#m_toc>li>a{font-weight:bold}.m_file-heading{width:100%;display:table;border-bottom:1px solid #aaa;margin:4em 0 1.5em 0}.m_file-heading h2{border:none;display:table-cell}.m_file-heading a{text-align:right;display:table-cell}.m_badge{width:1.6em;height:1.6em;display:inline-block;line-height:1.6em;text-align:center;font-weight:bold;font-size:60%;color:#89ba48;background-color:#dff0c8;border:1px solid #fbfbfb;border-radius:1ex}</style></head><body><u></u>
+
+
+  
+    
+    
+    
+    
+
+    
+    
+  
+
+    <div>
+  
+      <h1 id="m_title">Protocol Documentation</h1>
+  
+      <h2>Table of Contents</h2>
+  
+      <div id="m_toc-container">
+        <ul id="m_toc">
+          
+            
+            <li>
+              <a href="#m__cluster_lcm.proto" rel="noreferrer">cluster_lcm.proto</a>
+              <ul>
+                
+                  <li>
+                    <a href="#m__tks_pb.CreateClusterRequest" rel="noreferrer"><span class="m_badge">M</span>CreateClusterRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.InstallAppGroupsRequest" rel="noreferrer"><span class="m_badge">M</span>InstallAppGroupsRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.ScaleClusterRequest" rel="noreferrer"><span class="m_badge">M</span>ScaleClusterRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UninstallAppGroupsRequest" rel="noreferrer"><span class="m_badge">M</span>UninstallAppGroupsRequest</a>
+                  </li>
+                
+                
+                
+                
+                  <li>
+                    <a href="#m__tks_pb.ClusterLcmService" rel="noreferrer"><span class="m_badge">S</span>ClusterLcmService</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+            
+            <li>
+              <a href="#m__common.proto" rel="noreferrer">common.proto</a>
+              <ul>
+                
+                  <li>
+                    <a href="#m__tks_pb.AppGroup" rel="noreferrer"><span class="m_badge">M</span>AppGroup</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.Application" rel="noreferrer"><span class="m_badge">M</span>Application</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.Cluster" rel="noreferrer"><span class="m_badge">M</span>Cluster</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.ClusterConf" rel="noreferrer"><span class="m_badge">M</span>ClusterConf</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.ClusterRawConf" rel="noreferrer"><span class="m_badge">M</span>ClusterRawConf</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.Error" rel="noreferrer"><span class="m_badge">M</span>Error</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.IDRequest" rel="noreferrer"><span class="m_badge">M</span>IDRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.IDResponse" rel="noreferrer"><span class="m_badge">M</span>IDResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.IDsResponse" rel="noreferrer"><span class="m_badge">M</span>IDsResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.KeycloakInfo" rel="noreferrer"><span class="m_badge">M</span>KeycloakInfo</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.SimpleResponse" rel="noreferrer"><span class="m_badge">M</span>SimpleResponse</a>
+                  </li>
+                
+                
+                  <li>
+                    <a href="#m__tks_pb.AppGroupStatus" rel="noreferrer"><span class="m_badge">E</span>AppGroupStatus</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.AppGroupType" rel="noreferrer"><span class="m_badge">E</span>AppGroupType</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.AppType" rel="noreferrer"><span class="m_badge">E</span>AppType</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.ClusterStatus" rel="noreferrer"><span class="m_badge">E</span>ClusterStatus</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.Code" rel="noreferrer"><span class="m_badge">E</span>Code</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CspType" rel="noreferrer"><span class="m_badge">E</span>CspType</a>
+                  </li>
+                
+                
+                
+              </ul>
+            </li>
+          
+            
+            <li>
+              <a href="#m__contract.proto" rel="noreferrer">contract.proto</a>
+              <ul>
+                
+                  <li>
+                    <a href="#m__tks_pb.Contract" rel="noreferrer"><span class="m_badge">M</span>Contract</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.ContractQuota" rel="noreferrer"><span class="m_badge">M</span>ContractQuota</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CreateContractRequest" rel="noreferrer"><span class="m_badge">M</span>CreateContractRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CreateContractResponse" rel="noreferrer"><span class="m_badge">M</span>CreateContractResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAvailableServicesRequest" rel="noreferrer"><span class="m_badge">M</span>GetAvailableServicesRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAvailableServicesResponse" rel="noreferrer"><span class="m_badge">M</span>GetAvailableServicesResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetContractRequest" rel="noreferrer"><span class="m_badge">M</span>GetContractRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetContractResponse" rel="noreferrer"><span class="m_badge">M</span>GetContractResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetContractsRequest" rel="noreferrer"><span class="m_badge">M</span>GetContractsRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetContractsResponse" rel="noreferrer"><span class="m_badge">M</span>GetContractsResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetQuotaRequest" rel="noreferrer"><span class="m_badge">M</span>GetQuotaRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetQuotaResponse" rel="noreferrer"><span class="m_badge">M</span>GetQuotaResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateQuotaRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateQuotaRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateQuotaResponse" rel="noreferrer"><span class="m_badge">M</span>UpdateQuotaResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateServicesRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateServicesRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateServicesResponse" rel="noreferrer"><span class="m_badge">M</span>UpdateServicesResponse</a>
+                  </li>
+                
+                
+                
+                
+                  <li>
+                    <a href="#m__tks_pb.ContractService" rel="noreferrer"><span class="m_badge">S</span>ContractService</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+            
+            <li>
+              <a href="#m__info.proto" rel="noreferrer">info.proto</a>
+              <ul>
+                
+                  <li>
+                    <a href="#m__tks_pb.AddClusterInfoRequest" rel="noreferrer"><span class="m_badge">M</span>AddClusterInfoRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CreateAppGroupRequest" rel="noreferrer"><span class="m_badge">M</span>CreateAppGroupRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CreateCSPInfoRequest" rel="noreferrer"><span class="m_badge">M</span>CreateCSPInfoRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CreateKeycloakInfoRequest" rel="noreferrer"><span class="m_badge">M</span>CreateKeycloakInfoRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.DeleteAppGroupRequest" rel="noreferrer"><span class="m_badge">M</span>DeleteAppGroupRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAppGroupRequest" rel="noreferrer"><span class="m_badge">M</span>GetAppGroupRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAppGroupResponse" rel="noreferrer"><span class="m_badge">M</span>GetAppGroupResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAppGroupsRequest" rel="noreferrer"><span class="m_badge">M</span>GetAppGroupsRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAppGroupsResponse" rel="noreferrer"><span class="m_badge">M</span>GetAppGroupsResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAppsRequest" rel="noreferrer"><span class="m_badge">M</span>GetAppsRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetAppsResponse" rel="noreferrer"><span class="m_badge">M</span>GetAppsResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetCSPAuthResponse" rel="noreferrer"><span class="m_badge">M</span>GetCSPAuthResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetCSPInfoResponse" rel="noreferrer"><span class="m_badge">M</span>GetCSPInfoResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetClusterRequest" rel="noreferrer"><span class="m_badge">M</span>GetClusterRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetClusterResponse" rel="noreferrer"><span class="m_badge">M</span>GetClusterResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetClustersRequest" rel="noreferrer"><span class="m_badge">M</span>GetClustersRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetClustersResponse" rel="noreferrer"><span class="m_badge">M</span>GetClustersResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.GetKeycloakInfoResponse" rel="noreferrer"><span class="m_badge">M</span>GetKeycloakInfoResponse</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateAppGroupStatusRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateAppGroupStatusRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateAppRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateAppRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateCSPAuthRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateCSPAuthRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateClusterConfRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateClusterConfRequest</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.UpdateClusterStatusRequest" rel="noreferrer"><span class="m_badge">M</span>UpdateClusterStatusRequest</a>
+                  </li>
+                
+                
+                
+                
+                  <li>
+                    <a href="#m__tks_pb.AppInfoService" rel="noreferrer"><span class="m_badge">S</span>AppInfoService</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.ClusterInfoService" rel="noreferrer"><span class="m_badge">S</span>ClusterInfoService</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.CspInfoService" rel="noreferrer"><span class="m_badge">S</span>CspInfoService</a>
+                  </li>
+                
+                  <li>
+                    <a href="#m__tks_pb.KeycloakInfoService" rel="noreferrer"><span class="m_badge">S</span>KeycloakInfoService</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+          <li><a href="#m__scalar-value-types" rel="noreferrer">Scalar Value Types</a></li>
+        </ul>
+      </div>
+  
+      
+        
+        <div class="m_file-heading">
+          <h2 id="m_cluster_lcm.proto">cluster_lcm.proto</h2><a href="#m__title" rel="noreferrer">Top</a>
+        </div>
+        <p></p>
+  
+        
+          <h3 id="m_tks_pb.CreateClusterRequest">CreateClusterRequest</h3>
+          <p>CreateClusterRequest is a request to create a Kubernetes cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a contract ID. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is an ID of CSPInfo. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_name is a cluster name defined by users </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>conf</td>
+                    <td><a href="#m__tks_pb.ClusterRawConf" rel="noreferrer">ClusterRawConf</a></td>
+                    <td></td>
+                    <td><p>conf is a cluster configuration </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.InstallAppGroupsRequest">InstallAppGroupsRequest</h3>
+          <p>InstallAppGroupsRequest requests to install application groups on cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_groups</td>
+                    <td><a href="#m__tks_pb.AppGroup" rel="noreferrer">AppGroup</a></td>
+                    <td>repeated</td>
+                    <td><p>apps are applications to install into target cluster. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.ScaleClusterRequest">ScaleClusterRequest</h3>
+          <p>ScaleClusterRequest is a request to scale the number of nodes on the cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is Global Unique ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>master_replicas</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>master_replicas is the number of master node </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>worker_replicas</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>worker_replicas is the number of worker node </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UninstallAppGroupsRequest">UninstallAppGroupsRequest</h3>
+          <p>UninstallAppGroupsRequest is a request to delete applications on the Cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is Global Unique ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_group_ids</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>app_group_ids is a array of app_group_id. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+  
+        
+  
+        
+  
+        
+          <h3 id="m_tks_pb.ClusterLcmService">ClusterLcmService</h3>
+          <p>ClusterLcmService is a service to manage cluster&#39;s document.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>CreateCluster</td>
+                  <td><a href="#m__tks_pb.CreateClusterRequest" rel="noreferrer">CreateClusterRequest</a></td>
+                  <td><a href="#m__tks_pb.IDResponse" rel="noreferrer">IDResponse</a></td>
+                  <td><p>CreateCluster creates a Kubernetes cluster and returns cluster id</p></td>
+                </tr>
+              
+                <tr>
+                  <td>ScaleCluster</td>
+                  <td><a href="#m__tks_pb.ScaleClusterRequest" rel="noreferrer">ScaleClusterRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>ScaleCluster scales Kubernetes cluster</p></td>
+                </tr>
+              
+                <tr>
+                  <td>DeleteCluster</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>DeleteCluster deletes Kubernetes cluster</p></td>
+                </tr>
+              
+                <tr>
+                  <td>InstallAppGroups</td>
+                  <td><a href="#m__tks_pb.InstallAppGroupsRequest" rel="noreferrer">InstallAppGroupsRequest</a></td>
+                  <td><a href="#m__tks_pb.IDsResponse" rel="noreferrer">IDsResponse</a></td>
+                  <td><p>InstallAppGroups installs app groups, returns an array of app group id</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UninstallAppGroups</td>
+                  <td><a href="#m__tks_pb.UninstallAppGroupsRequest" rel="noreferrer">UninstallAppGroupsRequest</a></td>
+                  <td><a href="#m__tks_pb.IDsResponse" rel="noreferrer">IDsResponse</a></td>
+                  <td><p>UninstallAppGroups uninstalls app groups.</p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+  
+          
+      
+        
+        <div class="m_file-heading">
+          <h2 id="m_common.proto">common.proto</h2><a href="#m__title" rel="noreferrer">Top</a>
+        </div>
+        <p>Common.proto contains most commonly used interfaces </p><p>when communicating between TKS services.</p>
+  
+        
+          <h3 id="m_tks_pb.AppGroup">AppGroup</h3>
+          <p>AppGroup represents an application group such as LMA, ServiceMesh.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id for the application group </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_group_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_name is a human-readable name. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>type</td>
+                    <td><a href="#m__tks_pb.AppGroupType" rel="noreferrer">AppGroupType</a></td>
+                    <td></td>
+                    <td><p>type (LMA/SERVICE_MESH/LMA_EFK) </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is a cluster ID to install application. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>workflow_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>workflow_id is a argo workflow id </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status</td>
+                    <td><a href="#m__tks_pb.AppGroupStatus" rel="noreferrer">AppGroupStatus</a></td>
+                    <td></td>
+                    <td><p>a status of the application eg) Installing/Running/Error </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status_desc</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>a status description of the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>external_label</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>external_lable is the label used for globally unique identification </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>created_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>created_at is  a creatioin timestamp for the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>updated_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>updated_at is a timestamp for the trigger of status change </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.Application">Application</h3>
+          <p>Application represents each Application.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>id for the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>type</td>
+                    <td><a href="#m__tks_pb.AppType" rel="noreferrer">AppType</a></td>
+                    <td></td>
+                    <td><p>type (Prometheus/Grafana/...) </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id is an applicagion group ID. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>endpoint</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>endpoint is a endpoint string. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>metadata</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>metadata is a unstructured information for application. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>created_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>created_at is  a creatioin timestamp for the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>updated_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>updated_at is a timestamp for the trigger of status change </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.Cluster">Cluster</h3>
+          <p>Cluster represents each Cluster.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>is is a unique id for the cluster </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>name is a cluster name for users </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>created_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>created_at is a creatioin timestamp for the cluster </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>updated_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>updated_at is a timestamp for the trigger of status change </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>workflow_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>workflow_id is a argo workflow id </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status</td>
+                    <td><a href="#m__tks_pb.ClusterStatus" rel="noreferrer">ClusterStatus</a></td>
+                    <td></td>
+                    <td><p>status is a status of the cluste eg) Installing/Running/Error </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status_desc</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>status_desc is a detail description of the cluster status </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a contract ID. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is an ID of CSPInfo. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>conf</td>
+                    <td><a href="#m__tks_pb.ClusterConf" rel="noreferrer">ClusterConf</a></td>
+                    <td></td>
+                    <td><p>conf is a kubernete cluster configuration </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_groups</td>
+                    <td><a href="#m__tks_pb.AppGroup" rel="noreferrer">AppGroup</a></td>
+                    <td>repeated</td>
+                    <td><p>app_groups is a array of applications </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kubeconfig</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>kubeconfig is a default kubeconfig for the cluster </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.ClusterConf">ClusterConf</h3>
+          <p>ClusterConf represents a Kubernetes cluster configuration.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>ssh_key_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>name of user ssh key for ec2 instance connection </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>region</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>region is a AWS region name </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>num_of_az</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>number of AZ in selected region </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>machine_type</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>type of the worker machine </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>min_size_per_az</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>minimum number of worker node that can be scaled in </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>max_size_per_az</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>maximum number of worker node that can be scaled out </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.ClusterRawConf">ClusterRawConf</h3>
+          <p>ClusterRawConf represents raw data for K8S cluster configuration.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>ssh_key_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>name of user ssh key for ec2 instance connection </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>region</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>region is a AWS region name </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>num_of_az</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>number of AZ in selected region </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>machine_type</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>type of the worker machine </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>machine_replicas</td>
+                    <td><a href="#m__int32" rel="noreferrer">int32</a></td>
+                    <td></td>
+                    <td><p>number of replicas for worker machine </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.Error">Error</h3>
+          <p>Error represents a detailed error for gRPC request.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>msg</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>msg is an error message. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.IDRequest">IDRequest</h3>
+          <p>IDRequest is a request with a id</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>id is a id to ask </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.IDResponse">IDResponse</h3>
+          <p>IDResponse returns a id</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>id is a id </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.IDsResponse">IDsResponse</h3>
+          <p>IDsResponse returns arry of ids</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>ids</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>ids is a array of ids </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.KeycloakInfo">KeycloakInfo</h3>
+          <p>KeycloakInfo represents a keycloak info.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Id for cluster </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>realm</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Realm </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>client_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Client Id </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>secret</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Secret key </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>private_key</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Private key </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.SimpleResponse">SimpleResponse</h3>
+          <p>SimpleResponse returns a result for the request (the simplest return type)</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+  
+        
+          <h3 id="m_tks_pb.AppGroupStatus">AppGroupStatus</h3>
+          <p>AppGroupStatus represents a status of the application group</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>APP_GROUP_UNSPECIFIED</td>
+                  <td>0</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>APP_GROUP_INSTALLING</td>
+                  <td>1</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>APP_GROUP_RUNNING</td>
+                  <td>2</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>APP_GROUP_DELETING</td>
+                  <td>4</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>APP_GROUP_DELETED</td>
+                  <td>5</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>APP_GROUP_ERROR</td>
+                  <td>6</td>
+                  <td><p></p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+          <h3 id="m_tks_pb.AppGroupType">AppGroupType</h3>
+          <p>AppGroupType is types of app group</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>APP_TYPE_UNSPECIFIED</td>
+                  <td>0</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>LMA</td>
+                  <td>1</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>SERVICE_MESH</td>
+                  <td>2</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>LMA_EFK</td>
+                  <td>3</td>
+                  <td><p></p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+          <h3 id="m_tks_pb.AppType">AppType</h3>
+          <p>AppType is a type of application.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>EP_UNSPECIFIED</td>
+                  <td>0</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>THANOS</td>
+                  <td>1</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>PROMETHEUS</td>
+                  <td>2</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>GRAFANA</td>
+                  <td>3</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>KIALI</td>
+                  <td>4</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>KIBANA</td>
+                  <td>5</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>ELASTICSERCH</td>
+                  <td>6</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>CLOUD_CONSOLE</td>
+                  <td>7</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>HORIZON</td>
+                  <td>8</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>JAEGER</td>
+                  <td>9</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>KUBERNETES_DASHBOARD</td>
+                  <td>10</td>
+                  <td><p></p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+          <h3 id="m_tks_pb.ClusterStatus">ClusterStatus</h3>
+          <p>ClusterStatus represents a status of the cluster</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UNSPECIFIED</td>
+                  <td>0</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>INSTALLING</td>
+                  <td>1</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>RUNNING</td>
+                  <td>2</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>DELETING</td>
+                  <td>4</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>DELETED</td>
+                  <td>5</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>ERROR</td>
+                  <td>6</td>
+                  <td><p></p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+          <h3 id="m_tks_pb.Code">Code</h3>
+          <p>Code is a response code for gRpc request.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>OK_UNSPECIFIED</td>
+                  <td>0</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>CANCELLED</td>
+                  <td>1</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>UNKNOWN</td>
+                  <td>2</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>INVALID_ARGUMENT</td>
+                  <td>3</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>DEADLINE_EXCEEDED</td>
+                  <td>4</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>NOT_FOUND</td>
+                  <td>5</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>ALREADY_EXISTS</td>
+                  <td>6</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>PERMISSION_DENIED</td>
+                  <td>7</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>UNAUTHENTICATED</td>
+                  <td>16</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>RESOURCE_EXHAUSTED</td>
+                  <td>8</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>FAILED_PRECONDITION</td>
+                  <td>9</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>ABORTED</td>
+                  <td>10</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>OUT_OF_RANGE</td>
+                  <td>11</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>UNIMPLEMENTED</td>
+                  <td>12</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>INTERNAL</td>
+                  <td>13</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>UNAVAILABLE</td>
+                  <td>14</td>
+                  <td><p></p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+          <h3 id="m_tks_pb.CspType">CspType</h3>
+          <p>CspType is types of cloud service provider</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>CSPTYPE_UNSPECIFIED</td>
+                  <td>0</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>AWS</td>
+                  <td>1</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>GCP</td>
+                  <td>2</td>
+                  <td><p></p></td>
+                </tr>
+              
+                <tr>
+                  <td>AZURE</td>
+                  <td>3</td>
+                  <td><p></p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+  
+        
+  
+        
+      
+        
+        <div class="m_file-heading">
+          <h2 id="m_contract.proto">contract.proto</h2><a href="#m__title" rel="noreferrer">Top</a>
+        </div>
+        <p></p>
+  
+        
+          <h3 id="m_tks_pb.Contract">Contract</h3>
+          <p>Contract is a contract information.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contractor_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contractor_name is a name of contractor </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>quota</td>
+                    <td><a href="#m__tks_pb.ContractQuota" rel="noreferrer">ContractQuota</a></td>
+                    <td></td>
+                    <td><p>quota is a resource quota for cpu, memory, storage and so on. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>available_services</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>availavle_services is a list of services constomer purchased. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is a global unique ID created by the info service. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>updated_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>updated_at is a timestamp last updated. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>created_at</td>
+                    <td><a href="#m__google.protobuf.Timestamp" rel="noreferrer">google.protobuf.Timestamp</a></td>
+                    <td></td>
+                    <td><p>created_at is a timestamp created. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.ContractQuota">ContractQuota</h3>
+          <p>ContractQuota is a resource quota for total usage in clusters.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cpu</td>
+                    <td><a href="#m__sint64" rel="noreferrer">sint64</a></td>
+                    <td></td>
+                    <td><p>cpu unit(GB) from 10 to 10000 </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>memory</td>
+                    <td><a href="#m__sint64" rel="noreferrer">sint64</a></td>
+                    <td></td>
+                    <td><p>memory unit(MB) from 40 to 40000 </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>block</td>
+                    <td><a href="#m__sint64" rel="noreferrer">sint64</a></td>
+                    <td></td>
+                    <td><p>block storage(MB) from 0 to 256000000 </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>block_ssd</td>
+                    <td><a href="#m__sint64" rel="noreferrer">sint64</a></td>
+                    <td></td>
+                    <td><p>block ssd storage(MB) from 0 to 256000000 </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>fs</td>
+                    <td><a href="#m__sint64" rel="noreferrer">sint64</a></td>
+                    <td></td>
+                    <td><p>filesystem (MB) from 0 to 256000000 </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>fs_ssd</td>
+                    <td><a href="#m__sint64" rel="noreferrer">sint64</a></td>
+                    <td></td>
+                    <td><p>SSD filesystem (MB) from 0 to 256000000 </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.CreateContractRequest">CreateContractRequest</h3>
+          <p>CreateContractRequest is a request to create new contract </p><p>to the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contractor_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contractor_name is a name of contractor </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>quota</td>
+                    <td><a href="#m__tks_pb.ContractQuota" rel="noreferrer">ContractQuota</a></td>
+                    <td></td>
+                    <td><p>quota is a resource quota for this contract </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>available_services</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>availavle_services is a list of services constomer purchased. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_name is a name of csp for user. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_auth</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_auth is an authentication information for IaaS Provider. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.CreateContractResponse">CreateContractResponse</h3>
+          <p>CreateContractResponse is a response to the CreateContractRequest request </p><p>from the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is a global unique ID created by the info service. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by the contract service. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAvailableServicesRequest">GetAvailableServicesRequest</h3>
+          <p>GetAvailableServicesRequest is a request to get available service list </p><p>for the specific contract.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by the contract service. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAvailableServicesResponse">GetAvailableServicesResponse</h3>
+          <p>GetAvailableServicesResponse is a response to the GetAvailableServicesRequest</p><p>from the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>avaiable_service_apps</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>availavle_services is a list of services constomer purchased. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetContractRequest">GetContractRequest</h3>
+          <p>GetContractRequest is a request to inquire contract to the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetContractResponse">GetContractResponse</h3>
+          <p>GetContractResponse is a response to the GetContractRequest </p><p>from the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract</td>
+                    <td><a href="#m__tks_pb.Contract" rel="noreferrer">Contract</a></td>
+                    <td></td>
+                    <td><p>contract is a contract information. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetContractsRequest">GetContractsRequest</h3>
+          <p>GetContractsRequest is a request to inquire all contracts </p><p>to the contract service.</p>
+  
+          
+  
+          
+        
+          <h3 id="m_tks_pb.GetContractsResponse">GetContractsResponse</h3>
+          <p>GetContractsResponse is a response to the GetContractsRequest </p><p>from the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contracts</td>
+                    <td><a href="#m__tks_pb.Contract" rel="noreferrer">Contract</a></td>
+                    <td>repeated</td>
+                    <td><p>contracts is a list of contracts. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetQuotaRequest">GetQuotaRequest</h3>
+          <p>GetQuotaRequest is a request to inquire quota information </p><p>of the specific contract.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetQuotaResponse">GetQuotaResponse</h3>
+          <p>GetQuotaResponse is a response to the GetQuotaRequest </p><p>from the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>quota</td>
+                    <td><a href="#m__tks_pb.ContractQuota" rel="noreferrer">ContractQuota</a></td>
+                    <td></td>
+                    <td><p>quota is a resource quota for cpu, memory, storage and so on. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateQuotaRequest">UpdateQuotaRequest</h3>
+          <p>UpdateQuotaRequest is a request to update resource quota </p><p>for specific contract.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>quota</td>
+                    <td><a href="#m__tks_pb.ContractQuota" rel="noreferrer">ContractQuota</a></td>
+                    <td></td>
+                    <td><p>quota is a resource quota for cpu, memory, storage and so on. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateQuotaResponse">UpdateQuotaResponse</h3>
+          <p>UpdateQuotaResponse is a response to the UpdateQuotaRequest </p><p>from the contract service</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>prev_quota</td>
+                    <td><a href="#m__tks_pb.ContractQuota" rel="noreferrer">ContractQuota</a></td>
+                    <td></td>
+                    <td><p>prev_quota is a quota before updating quota. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>current_quota</td>
+                    <td><a href="#m__tks_pb.ContractQuota" rel="noreferrer">ContractQuota</a></td>
+                    <td></td>
+                    <td><p>current_quota is a quota after updating. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateServicesRequest">UpdateServicesRequest</h3>
+          <p>UpdateServicesRequest is a request </p><p>to update available service list to the contract service.</p><p>The services currently provided are as below:</p><p>- LMA(Logging Monitoring Alert)</p><p>- service-mesh (Istio, jaeger, kiali)</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>available_services</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>availavle_services is a list of services constomer purchased. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateServicesResponse">UpdateServicesResponse</h3>
+          <p>UpdateServicesResponse is a response </p><p>to the UpdateServicesRequest from the contract service.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a global unique ID created by CBP </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>prev_services</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>prev_services is a list of services before updating. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>current_services</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td>repeated</td>
+                    <td><p>current_services is a list of services after updating. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+  
+        
+  
+        
+  
+        
+          <h3 id="m_tks_pb.ContractService">ContractService</h3>
+          <p>ContractService is a service to manage contract&#39;s document.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>CreateContract</td>
+                  <td><a href="#m__tks_pb.CreateContractRequest" rel="noreferrer">CreateContractRequest</a></td>
+                  <td><a href="#m__tks_pb.CreateContractResponse" rel="noreferrer">CreateContractResponse</a></td>
+                  <td><p>CreateContract creates new contract.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateQuota</td>
+                  <td><a href="#m__tks_pb.UpdateQuotaRequest" rel="noreferrer">UpdateQuotaRequest</a></td>
+                  <td><a href="#m__tks_pb.UpdateQuotaResponse" rel="noreferrer">UpdateQuotaResponse</a></td>
+                  <td><p>UpdateQuota updates quota of the contract.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateServices</td>
+                  <td><a href="#m__tks_pb.UpdateServicesRequest" rel="noreferrer">UpdateServicesRequest</a></td>
+                  <td><a href="#m__tks_pb.UpdateServicesResponse" rel="noreferrer">UpdateServicesResponse</a></td>
+                  <td><p>UpdateServices updates list of available services of the contract.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetContract</td>
+                  <td><a href="#m__tks_pb.GetContractRequest" rel="noreferrer">GetContractRequest</a></td>
+                  <td><a href="#m__tks_pb.GetContractResponse" rel="noreferrer">GetContractResponse</a></td>
+                  <td><p>GetContract returns a contract if exists.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetDefaultContract</td>
+                  <td><a href="#m__google.protobuf.Empty" rel="noreferrer">.google.protobuf.Empty</a></td>
+                  <td><a href="#m__tks_pb.GetContractResponse" rel="noreferrer">GetContractResponse</a></td>
+                  <td><p>GetDefaultContract returns a default contract.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetContracts</td>
+                  <td><a href="#m__tks_pb.GetContractsRequest" rel="noreferrer">GetContractsRequest</a></td>
+                  <td><a href="#m__tks_pb.GetContractsResponse" rel="noreferrer">GetContractsResponse</a></td>
+                  <td><p>Getcontracts return a list of contract.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetQuota</td>
+                  <td><a href="#m__tks_pb.GetQuotaRequest" rel="noreferrer">GetQuotaRequest</a></td>
+                  <td><a href="#m__tks_pb.GetQuotaResponse" rel="noreferrer">GetQuotaResponse</a></td>
+                  <td><p>GetQuota returns a quota for the contract.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetAvailableServices</td>
+                  <td><a href="#m__tks_pb.GetAvailableServicesRequest" rel="noreferrer">GetAvailableServicesRequest</a></td>
+                  <td><a href="#m__tks_pb.GetAvailableServicesResponse" rel="noreferrer">GetAvailableServicesResponse</a></td>
+                  <td><p>GetAvailableServices returns list of available services for the contract.</p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+  
+          
+      
+        
+        <div class="m_file-heading">
+          <h2 id="m_info.proto">info.proto</h2><a href="#m__title" rel="noreferrer">Top</a>
+        </div>
+        <p></p>
+  
+        
+          <h3 id="m_tks_pb.AddClusterInfoRequest">AddClusterInfoRequest</h3>
+          <p>AddClusterInfoRequest is used to add a new cluster info</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a contract ID. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is an ID of CSPInfo. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_name is a cluster name defined by users </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>conf</td>
+                    <td><a href="#m__tks_pb.ClusterConf" rel="noreferrer">ClusterConf</a></td>
+                    <td></td>
+                    <td><p>conf is a cluster configuration </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.CreateAppGroupRequest">CreateAppGroupRequest</h3>
+          <p>CreateAppGroupRequest is used to create a new app group.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is a cluster ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_group</td>
+                    <td><a href="#m__tks_pb.AppGroup" rel="noreferrer">AppGroup</a></td>
+                    <td></td>
+                    <td><p>app_group is an application group </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.CreateCSPInfoRequest">CreateCSPInfoRequest</h3>
+          <p>CreateCSPInfoRequest is used to create a new CSP Info</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is Global Unique MultiCluster ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_name is a name for users </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>auth</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>auth is an optional. This is an authentication info for IaaS. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_type</td>
+                    <td><a href="#m__tks_pb.CspType" rel="noreferrer">CspType</a></td>
+                    <td></td>
+                    <td><p>csp_type is a type of cloud service provider. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.CreateKeycloakInfoRequest">CreateKeycloakInfoRequest</h3>
+          <p>CreateKeycloakInfoRequest is used to create a new keycloak Info</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Id for cluster </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>realm</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Realm </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>client_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Client Id </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>secret</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Secret </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>private_key</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Private key </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.DeleteAppGroupRequest">DeleteAppGroupRequest</h3>
+          <p>DeleteAppGroupRequest is used to delete app group.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id is an app group id to delete. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAppGroupRequest">GetAppGroupRequest</h3>
+          <p>GetAppGroupRequest returns an array of application groups on the cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id is an id of the application group </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAppGroupResponse">GetAppGroupResponse</h3>
+          <p>GetAppGroupResponse contains an array of application groups.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_group</td>
+                    <td><a href="#m__tks_pb.AppGroup" rel="noreferrer">AppGroup</a></td>
+                    <td></td>
+                    <td><p>app_group is an application group </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAppGroupsRequest">GetAppGroupsRequest</h3>
+          <p>GetAppGroupsRequest is used to get an array of application infos on cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_name is a name of the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>type</td>
+                    <td><a href="#m__tks_pb.AppGroupType" rel="noreferrer">AppGroupType</a></td>
+                    <td></td>
+                    <td><p>app_type is a type of the application </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAppGroupsResponse">GetAppGroupsResponse</h3>
+          <p>GetAppGroupsResponse contains an array of application infos.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_groups</td>
+                    <td><a href="#m__tks_pb.AppGroup" rel="noreferrer">AppGroup</a></td>
+                    <td>repeated</td>
+                    <td><p>app_groups is an array of applications </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAppsRequest">GetAppsRequest</h3>
+          <p>GetAppsRequest returns an array of applications</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id is a name of the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>type</td>
+                    <td><a href="#m__tks_pb.AppType" rel="noreferrer">AppType</a></td>
+                    <td></td>
+                    <td><p>app_type is a type of the application </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetAppsResponse">GetAppsResponse</h3>
+          <p>GetAppsResponse returns an array of applications.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>apps</td>
+                    <td><a href="#m__tks_pb.Application" rel="noreferrer">Application</a></td>
+                    <td>repeated</td>
+                    <td><p>app_groups is an array of applications </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetCSPAuthResponse">GetCSPAuthResponse</h3>
+          <p>GetCSPAuthResponse is used to get an authentication information by</p><p>csp id.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>auth</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>auth is an authentication info stiringified in JSON. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetCSPInfoResponse">GetCSPInfoResponse</h3>
+          <p>GetCSPInfoResponse is used to get info of csp</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>contract_id is a contract ID. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_name</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_name is a name for users </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>auth</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>auth is an optional. This is an authentication info for IaaS. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>csp_type</td>
+                    <td><a href="#m__tks_pb.CspType" rel="noreferrer">CspType</a></td>
+                    <td></td>
+                    <td><p>csp_type is a type of cloud service provider. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetClusterRequest">GetClusterRequest</h3>
+          <p>GetClusterRequest is used to get info of MultiCluster to correspond with id</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is a cluster ID </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetClusterResponse">GetClusterResponse</h3>
+          <p>GetClusterResponse contains a cluster info.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cluster</td>
+                    <td><a href="#m__tks_pb.Cluster" rel="noreferrer">Cluster</a></td>
+                    <td></td>
+                    <td><p>cluster is info for the cluster </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetClustersRequest">GetClustersRequest</h3>
+          <p>GetClustersRequest returns a list of clusters in specific CSP.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is a Global Unique ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>contract_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>Unique contract ID </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetClustersResponse">GetClustersResponse</h3>
+          <p>GetClustersResponse contains an array of cluster infos.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>error is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>clusters</td>
+                    <td><a href="#m__tks_pb.Cluster" rel="noreferrer">Cluster</a></td>
+                    <td>repeated</td>
+                    <td><p>cluster is info. for the cluster </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.GetKeycloakInfoResponse">GetKeycloakInfoResponse</h3>
+          <p>GetKeycloakInfoResponse returns an array of keycloak infos</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td><a href="#m__tks_pb.Code" rel="noreferrer">Code</a></td>
+                    <td></td>
+                    <td><p>code is a response code. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>error</td>
+                    <td><a href="#m__tks_pb.Error" rel="noreferrer">Error</a></td>
+                    <td></td>
+                    <td><p>orror is a detailed error message. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>keycloak_infos</td>
+                    <td><a href="#m__tks_pb.KeycloakInfo" rel="noreferrer">KeycloakInfo</a></td>
+                    <td>repeated</td>
+                    <td><p>keycloakInfos is a detailed keycloak info. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateAppGroupStatusRequest">UpdateAppGroupStatusRequest</h3>
+          <p>UpdateAppGroupStatusRequest is used to change the status of the app</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id is the application group id to change the status </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status</td>
+                    <td><a href="#m__tks_pb.AppGroupStatus" rel="noreferrer">AppGroupStatus</a></td>
+                    <td></td>
+                    <td><p>status is a AppStatus of the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status_desc</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>status_desc is a detail message of cluster status. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>workflow_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>workflow_id is a argo workflow ID(name) </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateAppRequest">UpdateAppRequest</h3>
+          <p>UpdateAppRequest updates an information of application such as endpoints.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_group_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>app_group_id is the application group id. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>app_type</td>
+                    <td><a href="#m__tks_pb.AppType" rel="noreferrer">AppType</a></td>
+                    <td></td>
+                    <td><p>app_type is a type of the application </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>endpoint</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>endpoints is an endpoint string. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>metadata</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>metadata is an unstructured metadata for application. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateCSPAuthRequest">UpdateCSPAuthRequest</h3>
+          <p>UpdateCSPAuthRequest updates an authenticationg information for CSP.</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>csp_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>csp_id is . </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>auth</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>auth is an authentication info to update. </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateClusterConfRequest">UpdateClusterConfRequest</h3>
+          <p>UpdateClusterConfRequest is used to update kubernetes cluster configuration</p><p>to correspond with id</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is a cluster ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>conf</td>
+                    <td><a href="#m__tks_pb.ClusterConf" rel="noreferrer">ClusterConf</a></td>
+                    <td></td>
+                    <td><p>conf is a kubernetes cluster configuration </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+          <h3 id="m_tks_pb.UpdateClusterStatusRequest">UpdateClusterStatusRequest</h3>
+          <p>UpdateClusterStatusRequest is used to change status of the cluster</p>
+  
+          
+            <table class="m_field-table">
+              <thead>
+                <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cluster_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>cluster_id is a cluster ID </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status</td>
+                    <td><a href="#m__tks_pb.ClusterStatus" rel="noreferrer">ClusterStatus</a></td>
+                    <td></td>
+                    <td><p>status is the clusterstatus to be changed </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status_desc</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>status_desc is a detail message of cluster status. </p></td>
+                  </tr>
+                
+                  <tr>
+                    <td>workflow_id</td>
+                    <td><a href="#m__string" rel="noreferrer">string</a></td>
+                    <td></td>
+                    <td><p>workflow_id is a argo workflow ID(name) </p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+  
+            
+  
+          
+        
+  
+        
+  
+        
+  
+        
+          <h3 id="m_tks_pb.AppInfoService">AppInfoService</h3>
+          <p>AppInfoService is a service to manage Application info document.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>CreateAppGroup</td>
+                  <td><a href="#m__tks_pb.CreateAppGroupRequest" rel="noreferrer">CreateAppGroupRequest</a></td>
+                  <td><a href="#m__tks_pb.IDResponse" rel="noreferrer">IDResponse</a></td>
+                  <td><p>CreateAppGroup creates a new application group.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetAppGroupsByClusterID</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.GetAppGroupsResponse" rel="noreferrer">GetAppGroupsResponse</a></td>
+                  <td><p>GetAppGroupsByClusterID gets an array of app infos By the clusterID</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetAppGroups</td>
+                  <td><a href="#m__tks_pb.GetAppGroupsRequest" rel="noreferrer">GetAppGroupsRequest</a></td>
+                  <td><a href="#m__tks_pb.GetAppGroupsResponse" rel="noreferrer">GetAppGroupsResponse</a></td>
+                  <td><p>GetAppGroups gets an array of app infos by name &amp; type in the cluster</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetAppGroup</td>
+                  <td><a href="#m__tks_pb.GetAppGroupRequest" rel="noreferrer">GetAppGroupRequest</a></td>
+                  <td><a href="#m__tks_pb.GetAppGroupResponse" rel="noreferrer">GetAppGroupResponse</a></td>
+                  <td><p>GetAppGroup gets an application group by application group ID</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateAppGroupStatus</td>
+                  <td><a href="#m__tks_pb.UpdateAppGroupStatusRequest" rel="noreferrer">UpdateAppGroupStatusRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>UpdateAppGroupStatus updates a status of an application group</p></td>
+                </tr>
+              
+                <tr>
+                  <td>DeleteAppGroup</td>
+                  <td><a href="#m__tks_pb.DeleteAppGroupRequest" rel="noreferrer">DeleteAppGroupRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>DeleteAppGroup deletes an app group.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetAppsByAppGroupID</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.GetAppsResponse" rel="noreferrer">GetAppsResponse</a></td>
+                  <td><p>GetAppsByClusterID gets applications by application group id.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetApps</td>
+                  <td><a href="#m__tks_pb.GetAppsRequest" rel="noreferrer">GetAppsRequest</a></td>
+                  <td><a href="#m__tks_pb.GetAppsResponse" rel="noreferrer">GetAppsResponse</a></td>
+                  <td><p>GetApps gets applications by application type and application id.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateApp</td>
+                  <td><a href="#m__tks_pb.UpdateAppRequest" rel="noreferrer">UpdateAppRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>UpdateApp updates application data.</p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+  
+          
+          <h3 id="m_tks_pb.ClusterInfoService">ClusterInfoService</h3>
+          <p>ClusterInfoService is a service to manage cluster info document.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>AddClusterInfo</td>
+                  <td><a href="#m__tks_pb.AddClusterInfoRequest" rel="noreferrer">AddClusterInfoRequest</a></td>
+                  <td><a href="#m__tks_pb.IDResponse" rel="noreferrer">IDResponse</a></td>
+                  <td><p>AddClusterInfo adds new cluster information</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateClusterConf</td>
+                  <td><a href="#m__tks_pb.UpdateClusterConfRequest" rel="noreferrer">UpdateClusterConfRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>UpdateClusterConf updates the cluster configuration information</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetCluster</td>
+                  <td><a href="#m__tks_pb.GetClusterRequest" rel="noreferrer">GetClusterRequest</a></td>
+                  <td><a href="#m__tks_pb.GetClusterResponse" rel="noreferrer">GetClusterResponse</a></td>
+                  <td><p>GetCluster gets cluster info for the id of the cluster</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetClusters</td>
+                  <td><a href="#m__tks_pb.GetClustersRequest" rel="noreferrer">GetClustersRequest</a></td>
+                  <td><a href="#m__tks_pb.GetClustersResponse" rel="noreferrer">GetClustersResponse</a></td>
+                  <td><p>GetClusters get every clusters on the mutlcluster</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateClusterStatus</td>
+                  <td><a href="#m__tks_pb.UpdateClusterStatusRequest" rel="noreferrer">UpdateClusterStatusRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>UpdateClusterStatus update Status of the Cluster</p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+  
+          
+          <h3 id="m_tks_pb.CspInfoService">CspInfoService</h3>
+          <p>CspInfoService is a service to manage CSP info document.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>CreateCSPInfo</td>
+                  <td><a href="#m__tks_pb.CreateCSPInfoRequest" rel="noreferrer">CreateCSPInfoRequest</a></td>
+                  <td><a href="#m__tks_pb.IDResponse" rel="noreferrer">IDResponse</a></td>
+                  <td><p>CreateCSPInfo create new CSP Info for the contract id.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetCSPInfo</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.GetCSPInfoResponse" rel="noreferrer">GetCSPInfoResponse</a></td>
+                  <td><p>GetCSPInfo returns an csp info by csp id.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetCSPIDs</td>
+                  <td><a href="#m__google.protobuf.Empty" rel="noreferrer">.google.protobuf.Empty</a></td>
+                  <td><a href="#m__tks_pb.IDsResponse" rel="noreferrer">IDsResponse</a></td>
+                  <td><p>GetCSPIDs returns all CSP ids.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetCSPIDsByContractID</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.IDsResponse" rel="noreferrer">IDsResponse</a></td>
+                  <td><p>GetCSPIDsByContractID returns the CSP ids by the contract id.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateCSPAuth</td>
+                  <td><a href="#m__tks_pb.UpdateCSPAuthRequest" rel="noreferrer">UpdateCSPAuthRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>UpdateCSPInfo updates an authentication config for CSP.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetCSPAuth</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.GetCSPAuthResponse" rel="noreferrer">GetCSPAuthResponse</a></td>
+                  <td><p>GetCSPAuth returns an authentication info by csp id.</p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+  
+          
+          <h3 id="m_tks_pb.KeycloakInfoService">KeycloakInfoService</h3>
+          <p>KeycloakInfoService is a service to manage Keycloak info.</p>
+          <table class="m_enum-table">
+            <thead>
+              <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>CreateKeycloakInfo</td>
+                  <td><a href="#m__tks_pb.CreateKeycloakInfoRequest" rel="noreferrer">CreateKeycloakInfoRequest</a></td>
+                  <td><a href="#m__tks_pb.IDResponse" rel="noreferrer">IDResponse</a></td>
+                  <td><p>CreateKeycloakInfo creates a new keycloak info.</p></td>
+                </tr>
+              
+                <tr>
+                  <td>GetKeycloakInfoByClusterId</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.GetKeycloakInfoResponse" rel="noreferrer">GetKeycloakInfoResponse</a></td>
+                  <td><p>GetKeycloakInfoByClusterId gets an array of keycloak infos By the clusterID</p></td>
+                </tr>
+              
+                <tr>
+                  <td>UpdateKeycloakInfo</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>UpdateKeycloakInfo updates a status of an keycloak info</p></td>
+                </tr>
+              
+                <tr>
+                  <td>DeleteKeycloakInfo</td>
+                  <td><a href="#m__tks_pb.IDRequest" rel="noreferrer">IDRequest</a></td>
+                  <td><a href="#m__tks_pb.SimpleResponse" rel="noreferrer">SimpleResponse</a></td>
+                  <td><p>DeleteKeycloakInfo deletes an keycloak info.</p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+  
+          
+      
+  
+      <h2 id="m_scalar-value-types">Scalar Value Types</h2>
+      <table class="m_scalar-value-types-table">
+        <thead>
+          <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+        </thead>
+        <tbody>
+          
+            <tr id="m_double">
+              <td>double</td>
+              <td></td>
+              <td>double</td>
+              <td>double</td>
+              <td>float</td>
+              <td>float64</td>
+              <td>double</td>
+              <td>float</td>
+              <td>Float</td>
+            </tr>
+          
+            <tr id="m_float">
+              <td>float</td>
+              <td></td>
+              <td>float</td>
+              <td>float</td>
+              <td>float</td>
+              <td>float32</td>
+              <td>float</td>
+              <td>float</td>
+              <td>Float</td>
+            </tr>
+          
+            <tr id="m_int32">
+              <td>int32</td>
+              <td>Uses variable-length encoding. Inefficient for encoding negative numbers â if your field is likely to have negative values, use sint32 instead.</td>
+              <td>int32</td>
+              <td>int</td>
+              <td>int</td>
+              <td>int32</td>
+              <td>int</td>
+              <td>integer</td>
+              <td>Bignum or Fixnum (as required)</td>
+            </tr>
+          
+            <tr id="m_int64">
+              <td>int64</td>
+              <td>Uses variable-length encoding. Inefficient for encoding negative numbers â if your field is likely to have negative values, use sint64 instead.</td>
+              <td>int64</td>
+              <td>long</td>
+              <td>int/long</td>
+              <td>int64</td>
+              <td>long</td>
+              <td>integer/string</td>
+              <td>Bignum</td>
+            </tr>
+          
+            <tr id="m_uint32">
+              <td>uint32</td>
+              <td>Uses variable-length encoding.</td>
+              <td>uint32</td>
+              <td>int</td>
+              <td>int/long</td>
+              <td>uint32</td>
+              <td>uint</td>
+              <td>integer</td>
+              <td>Bignum or Fixnum (as required)</td>
+            </tr>
+          
+            <tr id="m_uint64">
+              <td>uint64</td>
+              <td>Uses variable-length encoding.</td>
+              <td>uint64</td>
+              <td>long</td>
+              <td>int/long</td>
+              <td>uint64</td>
+              <td>ulong</td>
+              <td>integer/string</td>
+              <td>Bignum or Fixnum (as required)</td>
+            </tr>
+          
+            <tr id="m_sint32">
+              <td>sint32</td>
+              <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+              <td>int32</td>
+              <td>int</td>
+              <td>int</td>
+              <td>int32</td>
+              <td>int</td>
+              <td>integer</td>
+              <td>Bignum or Fixnum (as required)</td>
+            </tr>
+          
+            <tr id="m_sint64">
+              <td>sint64</td>
+              <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+              <td>int64</td>
+              <td>long</td>
+              <td>int/long</td>
+              <td>int64</td>
+              <td>long</td>
+              <td>integer/string</td>
+              <td>Bignum</td>
+            </tr>
+          
+            <tr id="m_fixed32">
+              <td>fixed32</td>
+              <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+              <td>uint32</td>
+              <td>int</td>
+              <td>int</td>
+              <td>uint32</td>
+              <td>uint</td>
+              <td>integer</td>
+              <td>Bignum or Fixnum (as required)</td>
+            </tr>
+          
+            <tr id="m_fixed64">
+              <td>fixed64</td>
+              <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+              <td>uint64</td>
+              <td>long</td>
+              <td>int/long</td>
+              <td>uint64</td>
+              <td>ulong</td>
+              <td>integer/string</td>
+              <td>Bignum</td>
+            </tr>
+          
+            <tr id="m_sfixed32">
+              <td>sfixed32</td>
+              <td>Always four bytes.</td>
+              <td>int32</td>
+              <td>int</td>
+              <td>int</td>
+              <td>int32</td>
+              <td>int</td>
+              <td>integer</td>
+              <td>Bignum or Fixnum (as required)</td>
+            </tr>
+          
+            <tr id="m_sfixed64">
+              <td>sfixed64</td>
+              <td>Always eight bytes.</td>
+              <td>int64</td>
+              <td>long</td>
+              <td>int/long</td>
+              <td>int64</td>
+              <td>long</td>
+              <td>integer/string</td>
+              <td>Bignum</td>
+            </tr>
+          
+            <tr id="m_bool">
+              <td>bool</td>
+              <td></td>
+              <td>bool</td>
+              <td>boolean</td>
+              <td>boolean</td>
+              <td>bool</td>
+              <td>bool</td>
+              <td>boolean</td>
+              <td>TrueClass/FalseClass</td>
+            </tr>
+          
+            <tr id="m_string">
+              <td>string</td>
+              <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+              <td>string</td>
+              <td>String</td>
+              <td>str/unicode</td>
+              <td>string</td>
+              <td>string</td>
+              <td>string</td>
+              <td>String (UTF-8)</td>
+            </tr>
+          
+            <tr id="m_bytes">
+              <td>bytes</td>
+              <td>May contain any arbitrary sequence of bytes.</td>
+              <td>string</td>
+              <td>ByteString</td>
+              <td>str</td>
+              <td>[]byte</td>
+              <td>ByteString</td>
+              <td>string</td>
+              <td>String (ASCII-8BIT)</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+  
+  </body></html>

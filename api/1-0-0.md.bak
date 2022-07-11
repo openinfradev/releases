@@ -1,0 +1,1323 @@
+
+# Protocol Documentation
+<a name="top"></a>
+
+## Table of Contents
+
+- [cluster_lcm.proto](#cluster_lcm-proto)
+    - [CreateClusterRequest](#tks_pb-CreateClusterRequest)
+    - [InstallAppGroupsRequest](#tks_pb-InstallAppGroupsRequest)
+    - [ScaleClusterRequest](#tks_pb-ScaleClusterRequest)
+    - [UninstallAppGroupsRequest](#tks_pb-UninstallAppGroupsRequest)
+  
+    - [ClusterLcmService](#tks_pb-ClusterLcmService)
+  
+- [common.proto](#common-proto)
+    - [AppGroup](#tks_pb-AppGroup)
+    - [Application](#tks_pb-Application)
+    - [Cluster](#tks_pb-Cluster)
+    - [ClusterConf](#tks_pb-ClusterConf)
+    - [ClusterRawConf](#tks_pb-ClusterRawConf)
+    - [Error](#tks_pb-Error)
+    - [IDRequest](#tks_pb-IDRequest)
+    - [IDResponse](#tks_pb-IDResponse)
+    - [IDsResponse](#tks_pb-IDsResponse)
+    - [KeycloakInfo](#tks_pb-KeycloakInfo)
+    - [SimpleResponse](#tks_pb-SimpleResponse)
+  
+    - [AppGroupStatus](#tks_pb-AppGroupStatus)
+    - [AppGroupType](#tks_pb-AppGroupType)
+    - [AppType](#tks_pb-AppType)
+    - [ClusterStatus](#tks_pb-ClusterStatus)
+    - [Code](#tks_pb-Code)
+    - [CspType](#tks_pb-CspType)
+  
+- [contract.proto](#contract-proto)
+    - [Contract](#tks_pb-Contract)
+    - [ContractQuota](#tks_pb-ContractQuota)
+    - [CreateContractRequest](#tks_pb-CreateContractRequest)
+    - [CreateContractResponse](#tks_pb-CreateContractResponse)
+    - [GetAvailableServicesRequest](#tks_pb-GetAvailableServicesRequest)
+    - [GetAvailableServicesResponse](#tks_pb-GetAvailableServicesResponse)
+    - [GetContractRequest](#tks_pb-GetContractRequest)
+    - [GetContractResponse](#tks_pb-GetContractResponse)
+    - [GetContractsRequest](#tks_pb-GetContractsRequest)
+    - [GetContractsResponse](#tks_pb-GetContractsResponse)
+    - [GetQuotaRequest](#tks_pb-GetQuotaRequest)
+    - [GetQuotaResponse](#tks_pb-GetQuotaResponse)
+    - [UpdateQuotaRequest](#tks_pb-UpdateQuotaRequest)
+    - [UpdateQuotaResponse](#tks_pb-UpdateQuotaResponse)
+    - [UpdateServicesRequest](#tks_pb-UpdateServicesRequest)
+    - [UpdateServicesResponse](#tks_pb-UpdateServicesResponse)
+  
+    - [ContractService](#tks_pb-ContractService)
+  
+- [info.proto](#info-proto)
+    - [AddClusterInfoRequest](#tks_pb-AddClusterInfoRequest)
+    - [CreateAppGroupRequest](#tks_pb-CreateAppGroupRequest)
+    - [CreateCSPInfoRequest](#tks_pb-CreateCSPInfoRequest)
+    - [CreateKeycloakInfoRequest](#tks_pb-CreateKeycloakInfoRequest)
+    - [DeleteAppGroupRequest](#tks_pb-DeleteAppGroupRequest)
+    - [GetAppGroupRequest](#tks_pb-GetAppGroupRequest)
+    - [GetAppGroupResponse](#tks_pb-GetAppGroupResponse)
+    - [GetAppGroupsRequest](#tks_pb-GetAppGroupsRequest)
+    - [GetAppGroupsResponse](#tks_pb-GetAppGroupsResponse)
+    - [GetAppsRequest](#tks_pb-GetAppsRequest)
+    - [GetAppsResponse](#tks_pb-GetAppsResponse)
+    - [GetCSPAuthResponse](#tks_pb-GetCSPAuthResponse)
+    - [GetCSPInfoResponse](#tks_pb-GetCSPInfoResponse)
+    - [GetClusterRequest](#tks_pb-GetClusterRequest)
+    - [GetClusterResponse](#tks_pb-GetClusterResponse)
+    - [GetClustersRequest](#tks_pb-GetClustersRequest)
+    - [GetClustersResponse](#tks_pb-GetClustersResponse)
+    - [GetKeycloakInfoResponse](#tks_pb-GetKeycloakInfoResponse)
+    - [UpdateAppGroupStatusRequest](#tks_pb-UpdateAppGroupStatusRequest)
+    - [UpdateAppRequest](#tks_pb-UpdateAppRequest)
+    - [UpdateCSPAuthRequest](#tks_pb-UpdateCSPAuthRequest)
+    - [UpdateClusterConfRequest](#tks_pb-UpdateClusterConfRequest)
+    - [UpdateClusterStatusRequest](#tks_pb-UpdateClusterStatusRequest)
+  
+    - [AppInfoService](#tks_pb-AppInfoService)
+    - [ClusterInfoService](#tks_pb-ClusterInfoService)
+    - [CspInfoService](#tks_pb-CspInfoService)
+    - [KeycloakInfoService](#tks_pb-KeycloakInfoService)
+  
+- [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="cluster_lcm-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## cluster_lcm.proto
+
+
+
+<a name="tks_pb-CreateClusterRequest"></a>
+
+### CreateClusterRequest
+CreateClusterRequest is a request to create a Kubernetes cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a contract ID. |
+| csp_id | [string](#string) |  | csp_id is an ID of CSPInfo. |
+| name | [string](#string) |  | cluster_name is a cluster name defined by users |
+| conf | [ClusterRawConf](#tks_pb-ClusterRawConf) |  | conf is a cluster configuration |
+
+
+
+
+
+
+<a name="tks_pb-InstallAppGroupsRequest"></a>
+
+### InstallAppGroupsRequest
+InstallAppGroupsRequest requests to install application groups on cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_groups | [AppGroup](#tks_pb-AppGroup) | repeated | apps are applications to install into target cluster. |
+
+
+
+
+
+
+<a name="tks_pb-ScaleClusterRequest"></a>
+
+### ScaleClusterRequest
+ScaleClusterRequest is a request to scale the number of nodes on the cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | cluster_id is Global Unique ID |
+| master_replicas | [int32](#int32) |  | master_replicas is the number of master node |
+| worker_replicas | [int32](#int32) |  | worker_replicas is the number of worker node |
+
+
+
+
+
+
+<a name="tks_pb-UninstallAppGroupsRequest"></a>
+
+### UninstallAppGroupsRequest
+UninstallAppGroupsRequest is a request to delete applications on the Cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | cluster_id is Global Unique ID |
+| app_group_ids | [string](#string) | repeated | app_group_ids is a array of app_group_id. |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="tks_pb-ClusterLcmService"></a>
+
+### ClusterLcmService
+ClusterLcmService is a service to manage cluster&#39;s document.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| CreateCluster | [CreateClusterRequest](#tks_pb-CreateClusterRequest) | [IDResponse](#tks_pb-IDResponse) | CreateCluster creates a Kubernetes cluster and returns cluster id |
+| ScaleCluster | [ScaleClusterRequest](#tks_pb-ScaleClusterRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | ScaleCluster scales Kubernetes cluster |
+| DeleteCluster | [IDRequest](#tks_pb-IDRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | DeleteCluster deletes Kubernetes cluster |
+| InstallAppGroups | [InstallAppGroupsRequest](#tks_pb-InstallAppGroupsRequest) | [IDsResponse](#tks_pb-IDsResponse) | InstallAppGroups installs app groups, returns an array of app group id |
+| UninstallAppGroups | [UninstallAppGroupsRequest](#tks_pb-UninstallAppGroupsRequest) | [IDsResponse](#tks_pb-IDsResponse) | UninstallAppGroups uninstalls app groups. |
+
+ 
+
+
+
+<a name="common-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## common.proto
+Common.proto contains most commonly used interfaces 
+when communicating between TKS services.
+
+
+<a name="tks_pb-AppGroup"></a>
+
+### AppGroup
+AppGroup represents an application group such as LMA, ServiceMesh.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_id | [string](#string) |  | app_group_id for the application group |
+| app_group_name | [string](#string) |  | app_group_name is a human-readable name. |
+| type | [AppGroupType](#tks_pb-AppGroupType) |  | type (LMA/SERVICE_MESH/LMA_EFK) |
+| cluster_id | [string](#string) |  | cluster_id is a cluster ID to install application. |
+| workflow_id | [string](#string) |  | workflow_id is a argo workflow id |
+| status | [AppGroupStatus](#tks_pb-AppGroupStatus) |  | a status of the application eg) Installing/Running/Error |
+| status_desc | [string](#string) |  | a status description of the application |
+| external_label | [string](#string) |  | external_lable is the label used for globally unique identification |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | created_at is a creatioin timestamp for the application |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | updated_at is a timestamp for the trigger of status change |
+
+
+
+
+
+
+<a name="tks_pb-Application"></a>
+
+### Application
+Application represents each Application.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_id | [string](#string) |  | id for the application |
+| type | [AppType](#tks_pb-AppType) |  | type (Prometheus/Grafana/...) |
+| app_group_id | [string](#string) |  | app_group_id is an applicagion group ID. |
+| endpoint | [string](#string) |  | endpoint is a endpoint string. |
+| metadata | [string](#string) |  | metadata is a unstructured information for application. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | created_at is a creatioin timestamp for the application |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | updated_at is a timestamp for the trigger of status change |
+
+
+
+
+
+
+<a name="tks_pb-Cluster"></a>
+
+### Cluster
+Cluster represents each Cluster.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | is is a unique id for the cluster |
+| name | [string](#string) |  | name is a cluster name for users |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | created_at is a creatioin timestamp for the cluster |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | updated_at is a timestamp for the trigger of status change |
+| workflow_id | [string](#string) |  | workflow_id is a argo workflow id |
+| status | [ClusterStatus](#tks_pb-ClusterStatus) |  | status is a status of the cluste eg) Installing/Running/Error |
+| status_desc | [string](#string) |  | status_desc is a detail description of the cluster status |
+| contract_id | [string](#string) |  | contract_id is a contract ID. |
+| csp_id | [string](#string) |  | csp_id is an ID of CSPInfo. |
+| conf | [ClusterConf](#tks_pb-ClusterConf) |  | conf is a kubernete cluster configuration |
+| app_groups | [AppGroup](#tks_pb-AppGroup) | repeated | app_groups is a array of applications |
+| kubeconfig | [string](#string) |  | kubeconfig is a default kubeconfig for the cluster |
+
+
+
+
+
+
+<a name="tks_pb-ClusterConf"></a>
+
+### ClusterConf
+ClusterConf represents a Kubernetes cluster configuration.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ssh_key_name | [string](#string) |  | name of user ssh key for ec2 instance connection |
+| region | [string](#string) |  | region is a AWS region name |
+| num_of_az | [int32](#int32) |  | number of AZ in selected region |
+| machine_type | [string](#string) |  | type of the worker machine |
+| min_size_per_az | [int32](#int32) |  | minimum number of worker node that can be scaled in |
+| max_size_per_az | [int32](#int32) |  | maximum number of worker node that can be scaled out |
+
+
+
+
+
+
+<a name="tks_pb-ClusterRawConf"></a>
+
+### ClusterRawConf
+ClusterRawConf represents raw data for K8S cluster configuration.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ssh_key_name | [string](#string) |  | name of user ssh key for ec2 instance connection |
+| region | [string](#string) |  | region is a AWS region name |
+| num_of_az | [int32](#int32) |  | number of AZ in selected region |
+| machine_type | [string](#string) |  | type of the worker machine |
+| machine_replicas | [int32](#int32) |  | number of replicas for worker machine |
+
+
+
+
+
+
+<a name="tks_pb-Error"></a>
+
+### Error
+Error represents a detailed error for gRPC request.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| msg | [string](#string) |  | msg is an error message. |
+
+
+
+
+
+
+<a name="tks_pb-IDRequest"></a>
+
+### IDRequest
+IDRequest is a request with a id
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | id is a id to ask |
+
+
+
+
+
+
+<a name="tks_pb-IDResponse"></a>
+
+### IDResponse
+IDResponse returns a id
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| id | [string](#string) |  | id is a id |
+
+
+
+
+
+
+<a name="tks_pb-IDsResponse"></a>
+
+### IDsResponse
+IDsResponse returns arry of ids
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| ids | [string](#string) | repeated | ids is a array of ids |
+
+
+
+
+
+
+<a name="tks_pb-KeycloakInfo"></a>
+
+### KeycloakInfo
+KeycloakInfo represents a keycloak info.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | Id for cluster |
+| realm | [string](#string) |  | Realm |
+| client_id | [string](#string) |  | Client Id |
+| secret | [string](#string) |  | Secret key |
+| private_key | [string](#string) |  | Private key |
+
+
+
+
+
+
+<a name="tks_pb-SimpleResponse"></a>
+
+### SimpleResponse
+SimpleResponse returns a result for the request (the simplest return type)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+
+
+
+
+
+ 
+
+
+<a name="tks_pb-AppGroupStatus"></a>
+
+### AppGroupStatus
+AppGroupStatus represents a status of the application group
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| APP_GROUP_UNSPECIFIED | 0 |  |
+| APP_GROUP_INSTALLING | 1 |  |
+| APP_GROUP_RUNNING | 2 |  |
+| APP_GROUP_DELETING | 4 |  |
+| APP_GROUP_DELETED | 5 |  |
+| APP_GROUP_ERROR | 6 |  |
+
+
+
+<a name="tks_pb-AppGroupType"></a>
+
+### AppGroupType
+AppGroupType is types of app group
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| APP_TYPE_UNSPECIFIED | 0 |  |
+| LMA | 1 |  |
+| SERVICE_MESH | 2 |  |
+| LMA_EFK | 3 |  |
+
+
+
+<a name="tks_pb-AppType"></a>
+
+### AppType
+AppType is a type of application.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| EP_UNSPECIFIED | 0 |  |
+| THANOS | 1 |  |
+| PROMETHEUS | 2 |  |
+| GRAFANA | 3 |  |
+| KIALI | 4 |  |
+| KIBANA | 5 |  |
+| ELASTICSERCH | 6 |  |
+| CLOUD_CONSOLE | 7 |  |
+| HORIZON | 8 |  |
+| JAEGER | 9 |  |
+| KUBERNETES_DASHBOARD | 10 |  |
+
+
+
+<a name="tks_pb-ClusterStatus"></a>
+
+### ClusterStatus
+ClusterStatus represents a status of the cluster
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSPECIFIED | 0 |  |
+| INSTALLING | 1 |  |
+| RUNNING | 2 |  |
+| DELETING | 4 |  |
+| DELETED | 5 |  |
+| ERROR | 6 |  |
+
+
+
+<a name="tks_pb-Code"></a>
+
+### Code
+Code is a response code for gRpc request.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OK_UNSPECIFIED | 0 |  |
+| CANCELLED | 1 |  |
+| UNKNOWN | 2 |  |
+| INVALID_ARGUMENT | 3 |  |
+| DEADLINE_EXCEEDED | 4 |  |
+| NOT_FOUND | 5 |  |
+| ALREADY_EXISTS | 6 |  |
+| PERMISSION_DENIED | 7 |  |
+| UNAUTHENTICATED | 16 |  |
+| RESOURCE_EXHAUSTED | 8 |  |
+| FAILED_PRECONDITION | 9 |  |
+| ABORTED | 10 |  |
+| OUT_OF_RANGE | 11 |  |
+| UNIMPLEMENTED | 12 |  |
+| INTERNAL | 13 |  |
+| UNAVAILABLE | 14 |  |
+
+
+
+<a name="tks_pb-CspType"></a>
+
+### CspType
+CspType is types of cloud service provider
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| CSPTYPE_UNSPECIFIED | 0 |  |
+| AWS | 1 |  |
+| GCP | 2 |  |
+| AZURE | 3 |  |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="contract-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## contract.proto
+
+
+
+<a name="tks_pb-Contract"></a>
+
+### Contract
+Contract is a contract information.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractor_name | [string](#string) |  | contractor_name is a name of contractor |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+| quota | [ContractQuota](#tks_pb-ContractQuota) |  | quota is a resource quota for cpu, memory, storage and so on. |
+| available_services | [string](#string) | repeated | availavle_services is a list of services constomer purchased. |
+| csp_id | [string](#string) |  | csp_id is a global unique ID created by the info service. |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | updated_at is a timestamp last updated. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | created_at is a timestamp created. |
+
+
+
+
+
+
+<a name="tks_pb-ContractQuota"></a>
+
+### ContractQuota
+ContractQuota is a resource quota for total usage in clusters.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cpu | [sint64](#sint64) |  | cpu unit(GB) from 10 to 10000 |
+| memory | [sint64](#sint64) |  | memory unit(MB) from 40 to 40000 |
+| block | [sint64](#sint64) |  | block storage(MB) from 0 to 256000000 |
+| block_ssd | [sint64](#sint64) |  | block ssd storage(MB) from 0 to 256000000 |
+| fs | [sint64](#sint64) |  | filesystem (MB) from 0 to 256000000 |
+| fs_ssd | [sint64](#sint64) |  | SSD filesystem (MB) from 0 to 256000000 |
+
+
+
+
+
+
+<a name="tks_pb-CreateContractRequest"></a>
+
+### CreateContractRequest
+CreateContractRequest is a request to create new contract 
+to the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contractor_name | [string](#string) |  | contractor_name is a name of contractor |
+| quota | [ContractQuota](#tks_pb-ContractQuota) |  | quota is a resource quota for this contract |
+| available_services | [string](#string) | repeated | availavle_services is a list of services constomer purchased. |
+| csp_name | [string](#string) |  | csp_name is a name of csp for user. |
+| csp_auth | [string](#string) |  | csp_auth is an authentication information for IaaS Provider. |
+
+
+
+
+
+
+<a name="tks_pb-CreateContractResponse"></a>
+
+### CreateContractResponse
+CreateContractResponse is a response to the CreateContractRequest request 
+ from the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| csp_id | [string](#string) |  | csp_id is a global unique ID created by the info service. |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by the contract service. |
+
+
+
+
+
+
+<a name="tks_pb-GetAvailableServicesRequest"></a>
+
+### GetAvailableServicesRequest
+GetAvailableServicesRequest is a request to get available service list 
+ for the specific contract.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by the contract service. |
+
+
+
+
+
+
+<a name="tks_pb-GetAvailableServicesResponse"></a>
+
+### GetAvailableServicesResponse
+GetAvailableServicesResponse is a response to the GetAvailableServicesRequest
+ from the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| avaiable_service_apps | [string](#string) | repeated | availavle_services is a list of services constomer purchased. |
+
+
+
+
+
+
+<a name="tks_pb-GetContractRequest"></a>
+
+### GetContractRequest
+GetContractRequest is a request to inquire contract to the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+
+
+
+
+
+
+<a name="tks_pb-GetContractResponse"></a>
+
+### GetContractResponse
+GetContractResponse is a response to the GetContractRequest 
+ from the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| contract | [Contract](#tks_pb-Contract) |  | contract is a contract information. |
+
+
+
+
+
+
+<a name="tks_pb-GetContractsRequest"></a>
+
+### GetContractsRequest
+GetContractsRequest is a request to inquire all contracts 
+ to the contract service.
+
+
+
+
+
+
+<a name="tks_pb-GetContractsResponse"></a>
+
+### GetContractsResponse
+GetContractsResponse is a response to the GetContractsRequest 
+ from the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| contracts | [Contract](#tks_pb-Contract) | repeated | contracts is a list of contracts. |
+
+
+
+
+
+
+<a name="tks_pb-GetQuotaRequest"></a>
+
+### GetQuotaRequest
+GetQuotaRequest is a request to inquire quota information 
+ of the specific contract.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+
+
+
+
+
+
+<a name="tks_pb-GetQuotaResponse"></a>
+
+### GetQuotaResponse
+GetQuotaResponse is a response to the GetQuotaRequest 
+ from the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| quota | [ContractQuota](#tks_pb-ContractQuota) |  | quota is a resource quota for cpu, memory, storage and so on. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateQuotaRequest"></a>
+
+### UpdateQuotaRequest
+UpdateQuotaRequest is a request to update resource quota 
+ for specific contract.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+| quota | [ContractQuota](#tks_pb-ContractQuota) |  | quota is a resource quota for cpu, memory, storage and so on. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateQuotaResponse"></a>
+
+### UpdateQuotaResponse
+UpdateQuotaResponse is a response to the UpdateQuotaRequest 
+from the contract service
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+| prev_quota | [ContractQuota](#tks_pb-ContractQuota) |  | prev_quota is a quota before updating quota. |
+| current_quota | [ContractQuota](#tks_pb-ContractQuota) |  | current_quota is a quota after updating. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateServicesRequest"></a>
+
+### UpdateServicesRequest
+UpdateServicesRequest is a request 
+ to update available service list to the contract service.
+The services currently provided are as below:
+  - LMA(Logging Monitoring Alert)
+  - service-mesh (Istio, jaeger, kiali)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+| available_services | [string](#string) | repeated | availavle_services is a list of services constomer purchased. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateServicesResponse"></a>
+
+### UpdateServicesResponse
+UpdateServicesResponse is a response 
+ to the UpdateServicesRequest from the contract service.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| contract_id | [string](#string) |  | contract_id is a global unique ID created by CBP |
+| prev_services | [string](#string) | repeated | prev_services is a list of services before updating. |
+| current_services | [string](#string) | repeated | current_services is a list of services after updating. |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="tks_pb-ContractService"></a>
+
+### ContractService
+ContractService is a service to manage contract&#39;s document.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| CreateContract | [CreateContractRequest](#tks_pb-CreateContractRequest) | [CreateContractResponse](#tks_pb-CreateContractResponse) | CreateContract creates new contract. |
+| UpdateQuota | [UpdateQuotaRequest](#tks_pb-UpdateQuotaRequest) | [UpdateQuotaResponse](#tks_pb-UpdateQuotaResponse) | UpdateQuota updates quota of the contract. |
+| UpdateServices | [UpdateServicesRequest](#tks_pb-UpdateServicesRequest) | [UpdateServicesResponse](#tks_pb-UpdateServicesResponse) | UpdateServices updates list of available services of the contract. |
+| GetContract | [GetContractRequest](#tks_pb-GetContractRequest) | [GetContractResponse](#tks_pb-GetContractResponse) | GetContract returns a contract if exists. |
+| GetDefaultContract | [.google.protobuf.Empty](#google-protobuf-Empty) | [GetContractResponse](#tks_pb-GetContractResponse) | GetDefaultContract returns a default contract. |
+| GetContracts | [GetContractsRequest](#tks_pb-GetContractsRequest) | [GetContractsResponse](#tks_pb-GetContractsResponse) | Getcontracts return a list of contract. |
+| GetQuota | [GetQuotaRequest](#tks_pb-GetQuotaRequest) | [GetQuotaResponse](#tks_pb-GetQuotaResponse) | GetQuota returns a quota for the contract. |
+| GetAvailableServices | [GetAvailableServicesRequest](#tks_pb-GetAvailableServicesRequest) | [GetAvailableServicesResponse](#tks_pb-GetAvailableServicesResponse) | GetAvailableServices returns list of available services for the contract. |
+
+ 
+
+
+
+<a name="info-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## info.proto
+
+
+
+<a name="tks_pb-AddClusterInfoRequest"></a>
+
+### AddClusterInfoRequest
+AddClusterInfoRequest is used to add a new cluster info
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is a contract ID. |
+| csp_id | [string](#string) |  | csp_id is an ID of CSPInfo. |
+| name | [string](#string) |  | cluster_name is a cluster name defined by users |
+| conf | [ClusterConf](#tks_pb-ClusterConf) |  | conf is a cluster configuration |
+
+
+
+
+
+
+<a name="tks_pb-CreateAppGroupRequest"></a>
+
+### CreateAppGroupRequest
+CreateAppGroupRequest is used to create a new app group.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | cluster_id is a cluster ID |
+| app_group | [AppGroup](#tks_pb-AppGroup) |  | app_group is an application group |
+
+
+
+
+
+
+<a name="tks_pb-CreateCSPInfoRequest"></a>
+
+### CreateCSPInfoRequest
+CreateCSPInfoRequest is used to create a new CSP Info
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| contract_id | [string](#string) |  | contract_id is Global Unique MultiCluster ID |
+| csp_name | [string](#string) |  | csp_name is a name for users |
+| auth | [string](#string) |  | auth is an optional. This is an authentication info for IaaS. |
+| csp_type | [CspType](#tks_pb-CspType) |  | csp_type is a type of cloud service provider. |
+
+
+
+
+
+
+<a name="tks_pb-CreateKeycloakInfoRequest"></a>
+
+### CreateKeycloakInfoRequest
+CreateKeycloakInfoRequest is used to create a new keycloak Info
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | Id for cluster |
+| realm | [string](#string) |  | Realm |
+| client_id | [string](#string) |  | Client Id |
+| secret | [string](#string) |  | Secret |
+| private_key | [string](#string) |  | Private key |
+
+
+
+
+
+
+<a name="tks_pb-DeleteAppGroupRequest"></a>
+
+### DeleteAppGroupRequest
+DeleteAppGroupRequest is used to delete app group.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_id | [string](#string) |  | app_group_id is an app group id to delete. |
+
+
+
+
+
+
+<a name="tks_pb-GetAppGroupRequest"></a>
+
+### GetAppGroupRequest
+GetAppGroupRequest returns an array of application groups on the cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_id | [string](#string) |  | app_group_id is an id of the application group |
+
+
+
+
+
+
+<a name="tks_pb-GetAppGroupResponse"></a>
+
+### GetAppGroupResponse
+GetAppGroupResponse contains an array of application groups.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| app_group | [AppGroup](#tks_pb-AppGroup) |  | app_group is an application group |
+
+
+
+
+
+
+<a name="tks_pb-GetAppGroupsRequest"></a>
+
+### GetAppGroupsRequest
+GetAppGroupsRequest is used to get an array of application infos on cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_name | [string](#string) |  | app_name is a name of the application |
+| type | [AppGroupType](#tks_pb-AppGroupType) |  | app_type is a type of the application |
+
+
+
+
+
+
+<a name="tks_pb-GetAppGroupsResponse"></a>
+
+### GetAppGroupsResponse
+GetAppGroupsResponse contains an array of application infos.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| app_groups | [AppGroup](#tks_pb-AppGroup) | repeated | app_groups is an array of applications |
+
+
+
+
+
+
+<a name="tks_pb-GetAppsRequest"></a>
+
+### GetAppsRequest
+GetAppsRequest returns an array of applications
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_id | [string](#string) |  | app_group_id is a name of the application |
+| type | [AppType](#tks_pb-AppType) |  | app_type is a type of the application |
+
+
+
+
+
+
+<a name="tks_pb-GetAppsResponse"></a>
+
+### GetAppsResponse
+GetAppsResponse returns an array of applications.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| apps | [Application](#tks_pb-Application) | repeated | app_groups is an array of applications |
+
+
+
+
+
+
+<a name="tks_pb-GetCSPAuthResponse"></a>
+
+### GetCSPAuthResponse
+GetCSPAuthResponse is used to get an authentication information by
+  csp id.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| auth | [string](#string) |  | auth is an authentication info stiringified in JSON. |
+
+
+
+
+
+
+<a name="tks_pb-GetCSPInfoResponse"></a>
+
+### GetCSPInfoResponse
+GetCSPInfoResponse is used to get info of csp
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| contract_id | [string](#string) |  | contract_id is a contract ID. |
+| csp_name | [string](#string) |  | csp_name is a name for users |
+| auth | [string](#string) |  | auth is an optional. This is an authentication info for IaaS. |
+| csp_type | [CspType](#tks_pb-CspType) |  | csp_type is a type of cloud service provider. |
+
+
+
+
+
+
+<a name="tks_pb-GetClusterRequest"></a>
+
+### GetClusterRequest
+GetClusterRequest is used to get info of MultiCluster to correspond with id
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | cluster_id is a cluster ID |
+
+
+
+
+
+
+<a name="tks_pb-GetClusterResponse"></a>
+
+### GetClusterResponse
+GetClusterResponse contains a cluster info.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| cluster | [Cluster](#tks_pb-Cluster) |  | cluster is info for the cluster |
+
+
+
+
+
+
+<a name="tks_pb-GetClustersRequest"></a>
+
+### GetClustersRequest
+GetClustersRequest returns a list of clusters in specific CSP.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| csp_id | [string](#string) |  | csp_id is a Global Unique ID |
+| contract_id | [string](#string) |  | Unique contract ID |
+
+
+
+
+
+
+<a name="tks_pb-GetClustersResponse"></a>
+
+### GetClustersResponse
+GetClustersResponse contains an array of cluster infos.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | error is a detailed error message. |
+| clusters | [Cluster](#tks_pb-Cluster) | repeated | cluster is info. for the cluster |
+
+
+
+
+
+
+<a name="tks_pb-GetKeycloakInfoResponse"></a>
+
+### GetKeycloakInfoResponse
+GetKeycloakInfoResponse returns an array of keycloak infos
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#tks_pb-Code) |  | code is a response code. |
+| error | [Error](#tks_pb-Error) |  | orror is a detailed error message. |
+| keycloak_infos | [KeycloakInfo](#tks_pb-KeycloakInfo) | repeated | keycloakInfos is a detailed keycloak info. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateAppGroupStatusRequest"></a>
+
+### UpdateAppGroupStatusRequest
+UpdateAppGroupStatusRequest is used to change the status of the app
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_id | [string](#string) |  | app_group_id is the application group id to change the status |
+| status | [AppGroupStatus](#tks_pb-AppGroupStatus) |  | status is a AppStatus of the application |
+| status_desc | [string](#string) |  | status_desc is a detail message of cluster status. |
+| workflow_id | [string](#string) |  | workflow_id is a argo workflow ID(name) |
+
+
+
+
+
+
+<a name="tks_pb-UpdateAppRequest"></a>
+
+### UpdateAppRequest
+UpdateAppRequest updates an information of application such as endpoints.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_group_id | [string](#string) |  | app_group_id is the application group id. |
+| app_type | [AppType](#tks_pb-AppType) |  | app_type is a type of the application |
+| endpoint | [string](#string) |  | endpoints is an endpoint string. |
+| metadata | [string](#string) |  | metadata is an unstructured metadata for application. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateCSPAuthRequest"></a>
+
+### UpdateCSPAuthRequest
+UpdateCSPAuthRequest updates an authenticationg information for CSP.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| csp_id | [string](#string) |  | csp_id is . |
+| auth | [string](#string) |  | auth is an authentication info to update. |
+
+
+
+
+
+
+<a name="tks_pb-UpdateClusterConfRequest"></a>
+
+### UpdateClusterConfRequest
+UpdateClusterConfRequest is used to update kubernetes cluster configuration
+to correspond with id
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | cluster_id is a cluster ID |
+| conf | [ClusterConf](#tks_pb-ClusterConf) |  | conf is a kubernetes cluster configuration |
+
+
+
+
+
+
+<a name="tks_pb-UpdateClusterStatusRequest"></a>
+
+### UpdateClusterStatusRequest
+UpdateClusterStatusRequest is used to change status of the cluster
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cluster_id | [string](#string) |  | cluster_id is a cluster ID |
+| status | [ClusterStatus](#tks_pb-ClusterStatus) |  | status is the clusterstatus to be changed |
+| status_desc | [string](#string) |  | status_desc is a detail message of cluster status. |
+| workflow_id | [string](#string) |  | workflow_id is a argo workflow ID(name) |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="tks_pb-AppInfoService"></a>
+
+### AppInfoService
+AppInfoService is a service to manage Application info document.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| CreateAppGroup | [CreateAppGroupRequest](#tks_pb-CreateAppGroupRequest) | [IDResponse](#tks_pb-IDResponse) | CreateAppGroup creates a new application group. |
+| GetAppGroupsByClusterID | [IDRequest](#tks_pb-IDRequest) | [GetAppGroupsResponse](#tks_pb-GetAppGroupsResponse) | GetAppGroupsByClusterID gets an array of app infos By the clusterID |
+| GetAppGroups | [GetAppGroupsRequest](#tks_pb-GetAppGroupsRequest) | [GetAppGroupsResponse](#tks_pb-GetAppGroupsResponse) | GetAppGroups gets an array of app infos by name &amp; type in the cluster |
+| GetAppGroup | [GetAppGroupRequest](#tks_pb-GetAppGroupRequest) | [GetAppGroupResponse](#tks_pb-GetAppGroupResponse) | GetAppGroup gets an application group by application group ID |
+| UpdateAppGroupStatus | [UpdateAppGroupStatusRequest](#tks_pb-UpdateAppGroupStatusRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | UpdateAppGroupStatus updates a status of an application group |
+| DeleteAppGroup | [DeleteAppGroupRequest](#tks_pb-DeleteAppGroupRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | DeleteAppGroup deletes an app group. |
+| GetAppsByAppGroupID | [IDRequest](#tks_pb-IDRequest) | [GetAppsResponse](#tks_pb-GetAppsResponse) | GetAppsByClusterID gets applications by application group id. |
+| GetApps | [GetAppsRequest](#tks_pb-GetAppsRequest) | [GetAppsResponse](#tks_pb-GetAppsResponse) | GetApps gets applications by application type and application id. |
+| UpdateApp | [UpdateAppRequest](#tks_pb-UpdateAppRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | UpdateApp updates application data. |
+
+
+<a name="tks_pb-ClusterInfoService"></a>
+
+### ClusterInfoService
+ClusterInfoService is a service to manage cluster info document.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| AddClusterInfo | [AddClusterInfoRequest](#tks_pb-AddClusterInfoRequest) | [IDResponse](#tks_pb-IDResponse) | AddClusterInfo adds new cluster information |
+| UpdateClusterConf | [UpdateClusterConfRequest](#tks_pb-UpdateClusterConfRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | UpdateClusterConf updates the cluster configuration information |
+| GetCluster | [GetClusterRequest](#tks_pb-GetClusterRequest) | [GetClusterResponse](#tks_pb-GetClusterResponse) | GetCluster gets cluster info for the id of the cluster |
+| GetClusters | [GetClustersRequest](#tks_pb-GetClustersRequest) | [GetClustersResponse](#tks_pb-GetClustersResponse) | GetClusters get every clusters on the mutlcluster |
+| UpdateClusterStatus | [UpdateClusterStatusRequest](#tks_pb-UpdateClusterStatusRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | UpdateClusterStatus update Status of the Cluster |
+
+
+<a name="tks_pb-CspInfoService"></a>
+
+### CspInfoService
+CspInfoService is a service to manage CSP info document.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| CreateCSPInfo | [CreateCSPInfoRequest](#tks_pb-CreateCSPInfoRequest) | [IDResponse](#tks_pb-IDResponse) | CreateCSPInfo create new CSP Info for the contract id. |
+| GetCSPInfo | [IDRequest](#tks_pb-IDRequest) | [GetCSPInfoResponse](#tks_pb-GetCSPInfoResponse) | GetCSPInfo returns an csp info by csp id. |
+| GetCSPIDs | [.google.protobuf.Empty](#google-protobuf-Empty) | [IDsResponse](#tks_pb-IDsResponse) | GetCSPIDs returns all CSP ids. |
+| GetCSPIDsByContractID | [IDRequest](#tks_pb-IDRequest) | [IDsResponse](#tks_pb-IDsResponse) | GetCSPIDsByContractID returns the CSP ids by the contract id. |
+| UpdateCSPAuth | [UpdateCSPAuthRequest](#tks_pb-UpdateCSPAuthRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | UpdateCSPInfo updates an authentication config for CSP. |
+| GetCSPAuth | [IDRequest](#tks_pb-IDRequest) | [GetCSPAuthResponse](#tks_pb-GetCSPAuthResponse) | GetCSPAuth returns an authentication info by csp id. |
+
+
+<a name="tks_pb-KeycloakInfoService"></a>
+
+### KeycloakInfoService
+KeycloakInfoService is a service to manage Keycloak info.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| CreateKeycloakInfo | [CreateKeycloakInfoRequest](#tks_pb-CreateKeycloakInfoRequest) | [IDResponse](#tks_pb-IDResponse) | CreateKeycloakInfo creates a new keycloak info. |
+| GetKeycloakInfoByClusterId | [IDRequest](#tks_pb-IDRequest) | [GetKeycloakInfoResponse](#tks_pb-GetKeycloakInfoResponse) | GetKeycloakInfoByClusterId gets an array of keycloak infos By the clusterID |
+| UpdateKeycloakInfo | [IDRequest](#tks_pb-IDRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | UpdateKeycloakInfo updates a status of an keycloak info |
+| DeleteKeycloakInfo | [IDRequest](#tks_pb-IDRequest) | [SimpleResponse](#tks_pb-SimpleResponse) | DeleteKeycloakInfo deletes an keycloak info. |
+
+ 
+
+
+
+## Scalar Value Types
+
+| .proto Type | Notes | C++ | Java | Python | Go | C# | PHP | Ruby |
+| ----------- | ----- | --- | ---- | ------ | -- | -- | --- | ---- |
+| <a name="double" /> double |  | double | double | float | float64 | double | float | Float |
+| <a name="float" /> float |  | float | float | float | float32 | float | float | Float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long | uint32 | uint | integer | Bignum or Fixnum (as required) |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long | uint64 | ulong | integer/string | Bignum or Fixnum (as required) |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int | uint32 | uint | integer | Bignum or Fixnum (as required) |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long | uint64 | ulong | integer/string | Bignum |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="bool" /> bool |  | bool | boolean | boolean | bool | bool | boolean | TrueClass/FalseClass |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode | string | string | string | String (UTF-8) |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str | []byte | ByteString | string | String (ASCII-8BIT) |

@@ -1,0 +1,201 @@
+# Quick Start    
+
+## **Summary** 
+SKT Container Platform은 Public Cloud에 GitOps 기반으로 Kubernetes distro를 배포/관리한다.   
+본 문서는 AWS와 Github 기준으로 작성되었다.
+    
+SKT Container Platform은 Admin Cluster 생성과 User Cluster 생성 두 단계로 설치된다.      
+   - Admin Cluster는 Bootstrap Server 구축 후, 제공되는Script를 통해 생성 된다.   
+   - User Cluster는 제공되는 CLI를 통해 생성된다.   
+
+![bootstrap](../assets/images/tks-intall-step.png)
+
+
+## **Prerequsition**
+- **Bootstrap Server**    
+   Ubuntu 20.04   
+   최소 설치 필요 CLI Tool : vim, git, curl      
+   AWS EC2 기준 t2.medium 20GB 이상 권고   
+- ** SSH PEM Key**   
+  Bastion node SSH PEM key (ex. quickstart.pem)
+- **AWS Account**   
+  AWS policy : [tks-capa.json](../assets/files/tks-capa.json), [tks-node.json](../assets/files/tks-node.json), [tks-ec2.json](../assets/files/tks-ec2.json), [tks-s3.json](../assets/files/tks-s3.json)   
+  AWS ACCESS KEY ID, AWS ACCESS KEY  , 위 AWS policy 적용   
+  AWS에 quickstart.pem 등록
+- **Github Account**   
+  Github Token
+  User or Organization name (ex. github.com/demo-decapod10  [[참고: Decapod10]](https://futurama.fandom.com/wiki/Decapod_10))
+
+## **Create Bootstrap Server**
+- Bootstrap download   
+```bash
+$ git clone https://github.com/openinfradev/tks-mgmt-cluster-deploy.git -b release-v2
+```
+- Pem 파일 생성 : AWS에 등록한 이름과 같은 이름으로 생성
+```bash
+$ cd tks-mgmt-cluster-deploy/
+$ vi quickstart.pem
+$ sudo chmod 400 quickstart.pem
+```
+
+- AWS, Gtihub 설정 
+```bash
+$ cp conf.sh.example conf.sh
+```
+conf.sh 설정
+```bash
+TKS_RELEASE=v2.0.0-rc1
+
+CAPI_INFRA_PROVIDER="aws" # aws or openstack
+# when 'aws' is an infrastructure provider
+AWS_REGION={Admin Cluster 설치 Region}
+AWS_ACCESS_KEY_ID={AWS ACCESS KEY ID
+AWS_SECRET_ACCESS_KEY={AWS ACESS KEY}
+
+GITHUB_USERNAME={ex. demo-dacapod10}
+GITHUB_TOKEN={TOKEN}
+```
+- Admin Cluster Spec 설정  
+```bash
+$ cd helm-values/
+$ cp example-aws-admin.vo aws-admin.vo
+```
+aws-admin.vo 설정
+```bash
+sshKeyName: {ex. quickstart}
+
+cluster:
+  name: {Your value}
+  region: {Your value}
+  kubernetesVersion: v1.22.8
+  podCidrBlocks:
+  - 192.168.0.0/16
+  bastion:
+    enabled: true
+    instanceType: t3.micro
+  baseOS: ubuntu-20.04
+
+kubeadmControlPlane:
+  replicas: 3
+  controlPlaneMachineType: t3.large
+  rootVolume:
+    size: 20
+    type: gp2
+
+machinePool:
+- name: {Your value}
+  machineType: t3.2xlarge
+  replicas: 3
+  minSize: 1
+  maxSize: 10
+  rootVolume:
+    size: 200
+    type: gp2
+  subnets: []
+  labels:
+    taco-tks: enabled
+```
+## **Create Admin Cluster**
+
+- Artifcat 생성: "asset-YYYY-MM-DD" Directory 생성됨
+```bash
+$ cd ..
+$ ./01_prepare_assets.sh
+```
+- K3S install
+```bash
+$ ./02_create_bootstrap_cluster.sh {ex. assets-YYYY-MM-DD}
+
+$ kubectl --kubeconfig ~/.kube/config get node
+NAME               STATUS   ROLES                  AGE     VERSION
+ip-???-??-??-???   Ready    control-plane,master   2m50s   v1.23.5+k3s1
+```
+- K3S에 Cluster API for AWS 설치
+```bash
+$ ./03_initialize_capi_providers.sh {ex. assets-YYYY-M-DD}
+```
+- AWS에 Admin Cluster로 사용한 K8S Cluster를 생성   
+```bash
+$ ./04_create_tks-admin_cluster.sh  {ex. assets-YYYY-MM-DD} ./helm-values/aws-admin.vo
+
+$ kubectl --kubeconfig ~/.kube/config get awscluster -A
+NAMESPACE   NAME                   CLUSTER                READY   VPC                     BASTION IP
+default     tks-admin-quickstart   tks-admin-quickstart   true    vpc-058642e3b5500ee41   ???.???.???.????
+
+$ kubectl --kubeconfig kubeconfig_{ex. tks-admin-quickstart} get node
+NAME                                              STATUS     ROLES                  AGE   VERSION
+ip-10-0-120-101.ap-northeast-2.compute.internal   NotReady   <none>                 13m   v1.22.8
+ip-10-0-126-250.ap-northeast-2.compute.internal   NotReady   control-plane,master   14m   v1.22.8
+ip-10-0-173-233.ap-northeast-2.compute.internal   NotReady   <none>                 13m   v1.22.8
+ip-10-0-191-126.ap-northeast-2.compute.internal   NotReady   control-plane,master   12m   v1.22.8
+ip-10-0-214-182.ap-northeast-2.compute.internal   NotReady   <none>                 13m   v1.22.8
+ip-10-0-222-105.ap-northeast-2.compute.internal   NotReady   control-plane,master   15m   v1.22.8
+```
+- Admin Cluster에 Decapod 설치   
+```bash
+$ ./05_install_decapod.sh {ex. assets-YYYY-MM-DD}
+```
+- Admin Cluster에 Keycloak 설치
+```bash
+$ ./05_z1_install_keycloak.sh
+```
+- Admin Clyster에 Ingress Controller설치
+```bash
+$ ./05_z2_install_nginx_ingress.sh
+```
+- Admin Clutser가 스스로를 Cluster API로 management하게 Pivoting
+```bash
+$ ./06_make_tks-admin_self-managing.sh {ex. quickstart.pem}
+...
+...
+=== Finished. Check the status of all cluster API resources in the admin cluster and use the bastion host: 999.999.999.999 ===
+```
+- Admin Cluster에 필요Tool 설치: kubectl, helm, tksadmin
+```bash
+$ ssh -i quickstart.pem ubuntu@999.999.999.999
+
+$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+$ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+$ cp ~/tks-mgmt-cluster-deploy/ kubeconfig_{ex.tks-admin-quickstart} ~/.kube/config
+
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+
+$ curl -LO https://github.com/openinfradev/tksadmin-client/releases/download/v2.0.0-rc2/tksadmin-client_2.0.0-rc2_Linux_x86_64.tar.gz
+$ tar xvzf tksadmin-client_2.0.0-rc2_Linux_x86_64.tar.gz tksadmin
+$ sudo install -o root -g root -m 0755 tksadmin /usr/local/bin/tksadmin
+
+```
+- API Service 설치
+```bash
+$ kubectl create ns tks
+$ kubectl label no ip-10-0-120-101.ap-northeast-2.compute.internal taco-tks=enabled
+$ kubectl get secret -n argo github-tks-mgmt-token -o yaml | grep -v namespace | kubectl apply -n tks -f -
+$ helm repo add tks https://openinfradev.github.io/helm-repo
+$ helm repo update
+$ helm install tks-info tks/tks-info -n tks
+$ helm install tks-contract tks/tks-contract -n tks --set args.revision=release-v2
+$ helm install tks-cluster-lcm tks/tks-cluster-lcm -n tks --set args.revision=release-v2 --set args.gitAccount={ex.demo-decapod10}
+$ helm install tks-batch tks/tks-batch -n tks
+
+# Create default contract of tks
+$ tksadmin contract create default
+```
+- Install CLI   
+   [CLI Install](../cli/install.md)   
+   [CLI Config](../cli/configuration.md)   
+CLI 동작확인
+```bash
+$ tks cluster list
+```
+
+## Create User Cluster
+
+## Create Service
+
+## Clean Up
+- Delete Service
+- Delete User Cluster
+- Delete Admin Cluster
+

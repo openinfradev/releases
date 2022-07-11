@@ -1,5 +1,5 @@
 # Architecture Overview
-SKT Enterprise Kubernetes Service는 2종의 Clutser로 구성된다.   
+SKT Enterprise Kubernetes Solution은 2종의 Clutser로 구성된다.   
    
 - **Admin Cluster**   
    Admin Cluster는 Decapod가 설치된 Cluster로 서비스를 API로 제공하기 위한  Micro Serivce로 구성된 API Service등과 운영을 위한 툴로 구성되어 있다.

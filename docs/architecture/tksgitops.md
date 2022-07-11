@@ -2,7 +2,7 @@
 
 # 문서의 목적
 
-본 문서는 SKT Enterprise Kubernetes Service가 제공하는 CustomCluster에 대한 이해를 목적으로 한다.
+본 문서는 SKT Enterprise Kubernetes Solution이 제공하는 CustomCluster에 대한 이해를 목적으로 한다.
 
 # 배경지식 : Decapod
 
@@ -32,12 +32,12 @@ Decapod는 구성 요소에 대한 설명이다.
     Complex Deployment 문제를 해결하기 위해, 도입한 Workflow Engine으로 SKT가 Application Group별로 개발한 Workflow가 실행된다. Argo CD의 Deployment 순서를 제어한다.   
 - **Argo CD**   
     GitOps 툴로 decapod-manifests에 저장된 yaml file들을 원하는 Target (Cluster or Public Clutser)에 배포하는 툴이다
-# SKT Enterprise Kubernetes Service GitOps pipeline
-SKT Enterprise Kubernetes Service의 GitOps pipleline은 Decapod 이다. Decapod는 Kubernetes Cluster도 배포 관리 할 수 있다. 이는 Cluster API라는 기술을 활용 했기 때문이다.
+# SKT Enterprise Kubernetes Solution GitOps pipeline
+SKT Enterprise Kubernetes Solution의 GitOps pipleline은 Decapod 이다. Decapod는 Kubernetes Cluster도 배포 관리 할 수 있다. 이는 Cluster API라는 기술을 활용 했기 때문이다.
 Cluster API는 Kubernetes Cluster와 Cluster를 구성한는 Server / OS 그리고 Network을 Kubernetes Resource로 관리한다. 따라서 Decapod가 Application Group를 관리하는 방법과 동일 하게 Kubernetes Cluster 자체도 관리 할 수 있다.
 > Cluster API is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters.
 ## 제공되는 Repo
-SKT Container Platform의 고객에게는 GitOps 가준, 아래 3개의 Repo를 제공한다.
+SKT Enterprise Kubernetes Solution의 고객에게는 GitOps 가준, 아래 3개의 Repo를 제공한다.
 [참고] 고객은 Github Organization Account를 사전에 제공해야 한다.
 decapod-base-yaml과 tks-custom-base-yaml 를 기반으로 최종적으로 고객의 custom cluster tempate인 {contact} 를 생성한다.
 

@@ -1,6 +1,6 @@
 # Core Concepts
 
-kubernetes 및 gitOps 개념에 익숙하다고 가정해 보겠습니다. 다음은 SKT Enterprise Container Solution 에서 사용하는 개념들입니다.
+SKT Enterprise Container Solution 에서 사용하는 주요 개념들을 설명합니다.
 
 
 - **Project**   

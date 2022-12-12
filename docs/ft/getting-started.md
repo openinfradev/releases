@@ -42,7 +42,7 @@ TKS 접속 후 가장 먼저 할 일은 [**프로젝트**](../core-concepts)를 
 ![menus](../assets/images/ft/create_new_stack.png)
 
 2. 이름과 설명을 입력하고, 서비스를 선택합니다.
-	- AWS Standard : 기본 서비스를 설치합니다.
+	- AWS Standard (LMA): 기본 Kubernetes 클러스터와 같이 LMA (Logging, Monitoring, Alerting) 서비스를 설치합니다.
 	- AWS MSA : (**recommended**) AWS Standard 템플릿의 모든 내용과 MSA 를 위한 소프트웨어를 추가로 설치합니다.
 
 3. kubernetes 클러스터 생성은 약 10분 정도 소요되며, 클러스터 생성후 서비스는 백그라운드로 설치됩니다. 모든 스택이 설치되기까지는 약 20-30분정도가 소요됩니다.

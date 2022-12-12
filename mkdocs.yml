@@ -6,16 +6,16 @@ theme:
   name: material
   logo: assets/taco_icon.png
   font:
-    text: Noto Sans Korean  
-  palette: 
-   - scheme: default
-     toggle:
-       icon: material/toggle-switch-off-outline
-       name: Switch to dark mode
-   - scheme: slate 
-     toggle:
-       icon: material/toggle-switch
-       name: Switch to light mode
+    text: Noto Sans Korean
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   features:
     - navigation.indexes
     - navigation.instant
@@ -25,7 +25,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.expand
-    - toc.integrate       
+    - toc.integrate
     - content.code.annotate
     - content.tabs.link
     - search.highlight
@@ -44,7 +44,7 @@ plugins:
 #      javascript_dir: js       # the directory to put the version selector's JS
 
 extra_css:
-    - assets/css/extra.css
+  - assets/css/extra.css
 
 markdown_extensions:
   - admonition
@@ -59,23 +59,27 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-#    - emoji_index: !!python/name:materialx.emoji.twemoji
-#    - emoji_generator: !!python/name:materialx.emoji.to_svg
+  #    - emoji_index: !!python/name:materialx.emoji.twemoji
+  #    - emoji_generator: !!python/name:materialx.emoji.to_svg
   - toc:
       permalink: true
 nav:
   - Welcome: index.md
   - Quick Start: quickstart/2-0-0.md
   - Release Note: releasenotes/2-0-0.md
-  - Architecture: 
-      - 'Overview': architecture/overviewarch.md
-      - 'GitOps Architecture': architecture/tksgitops.md
-      - 'AWS Ref. Architecture': architecture/awsarch.md
-  - CLI Manual: 
-      - 'Overview': cli/overview.md
-      - 'Installation': cli/install.md
-      - 'Configuration': cli/configuration.md
+  - Architecture:
+      - "Overview": architecture/overviewarch.md
+      - "GitOps Architecture": architecture/tksgitops.md
+      - "AWS Ref. Architecture": architecture/awsarch.md
+  - CLI Manual:
+      - "Overview": cli/overview.md
+      - "Installation": cli/install.md
+      - "Configuration": cli/configuration.md
       - Command:
-        - 'tks cluster': cli/tks_cluster.md
-        - 'tks service': cli/tks_service.md
-  - API Reference: api/2-0-0.md 
+          - "tks cluster": cli/tks_cluster.md
+          - "tks service": cli/tks_service.md
+  - API Reference: api/2-0-0.md
+  - Free Trial Service:
+      - "About": ft/about.md
+      - "Core Concepts": ft/core-concepts.md
+      - "Getting Started": ft/getting-started.md

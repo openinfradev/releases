@@ -1,6 +1,6 @@
 site_name: SKT Enterprise Kubernetes Solution
 repo_name: openinfradev/releases
-repo_url: https://github.com/openinfradev/releases
+repo_url: https://github.com/openinfradev/tks-service-info
 theme:
   language: kr
   name: material

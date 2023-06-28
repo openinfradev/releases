@@ -1,0 +1,990 @@
+
+<!doctype html>
+<html lang="kr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>GitOps Architecture - SKT Enterprise Kubernetes Solution</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Korean:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Noto Sans Korean";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gitops-pipeline" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SKT Enterprise Kubernetes Solution" class="md-header__button md-logo" aria-label="SKT Enterprise Kubernetes Solution" data-md-component="logo">
+      
+  <img src="../../assets/taco_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SKT Enterprise Kubernetes Solution
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GitOps Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="지우기" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/openinfradev/tks-service-info/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openinfradev/releases
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../quickstart/2-0-0/" class="md-tabs__link">
+      Quick Start
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../releasenotes/2-0-0/" class="md-tabs__link">
+      Release Note
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overviewarch/" class="md-tabs__link md-tabs__link--active">
+        Architecture
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cli/overview/" class="md-tabs__link">
+        CLI Manual
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../api/2-0-0/" class="md-tabs__link">
+      API Reference
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ft/about/" class="md-tabs__link">
+        Free Trial Service
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SKT Enterprise Kubernetes Solution" class="md-nav__button md-logo" aria-label="SKT Enterprise Kubernetes Solution" data-md-component="logo">
+      
+  <img src="../../assets/taco_icon.png" alt="logo">
+
+    </a>
+    SKT Enterprise Kubernetes Solution
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/openinfradev/tks-service-info/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openinfradev/releases
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/2-0-0/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../releasenotes/2-0-0/" class="md-nav__link">
+        Release Note
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architecture" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overviewarch/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GitOps Architecture
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awsarch/" class="md-nav__link">
+        AWS Ref. Architecture
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          CLI Manual
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI Manual" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Manual
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/install/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" data-md-state="indeterminate" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Command
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Command" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Command
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/tks_cluster/" class="md-nav__link">
+        tks cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/tks_service/" class="md-nav__link">
+        tks service
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/2-0-0/" class="md-nav__link">
+        API Reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Free Trial Service
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Free Trial Service" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Free Trial Service
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ft/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ft/core-concepts/" class="md-nav__link">
+        Core Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ft/getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/openinfradev/tks-service-info/edit/master/docs/architecture/tksgitops.md" title="이 페이지를 편집" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="gitops-pipeline">GitOps pipeline<a class="headerlink" href="#gitops-pipeline" title="Permanent link">&para;</a></h1>
+<h1 id="_1">문서의 목적<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>본 문서는 SKT Enterprise Kubernetes Solution이 제공하는 CustomCluster에 대한 이해를 목적으로 한다.</p>
+<h1 id="decapod">배경지식 : Decapod<a class="headerlink" href="#decapod" title="Permanent link">&para;</a></h1>
+<p>SKT는 GitOps pipeline으로 Decapod(Declarative Application Orchestration &amp; Delivery)라는 기술을 사용한다.
+<strong>Decapod는 Kubernetes에 다양한 Application으로 구성된 Application Group을 다양한 환경에 배포하기 위해 SKT가 개발한 GtiOps Pipeline 이다.</strong></p>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
+<p>Application Group을 다양한 환경에 반복적으로 배포하기 위해서는 아래와 같은 어려움이 있다.</p>
+<ul>
+<li><strong>Massive Documentation</strong> <br />
+    Kubernetes는 단일 Application을 배포하고 서비스하기 위해, 복수의 선언문(yaml file)이 필요하다. 따라서 단일 Application을 위한 설정 또한 복수의 yaml file들의 변경을 통해 실행 된다. 이런 복잡성을 해결하기 위해 Helm이라는 기술이 보급되었다. 하지만 우리가 사용하는 대분의 서비스는 복수의 Application 들로 구성된 Application Group 이다. 따라서 Application Group의 구성관리 및 설정(Documentation)을 간단하게 할 수 있는 툴이 필요하다.</li>
+<li><strong>Complex Deployment</strong> <br />
+    복수의 Application로 구성된 Application Group을 배포할 때, 각 Application간 Dependency를 고려해야 한다. 즉 Application Deployment간 flow control이 필요하며, 때로는 Deployment 시점에 생성되는 value의 관리가 필요하다.</li>
+</ul>
+<h2 id="solution-decapod">Solution : Decapod<a class="headerlink" href="#solution-decapod" title="Permanent link">&para;</a></h2>
+<p>Decapod는 언급된 Massive Documentation과 Complex Deployment에 대한 SKT의 Solution이다.
+<img alt="https://raw.githubusercontent.com/openinfradev/decapod-docs/main/docs/assets/decapod-flow.svg" src="https://raw.githubusercontent.com/openinfradev/decapod-docs/main/docs/assets/decapod-flow.svg" /></p>
+<p>Decapod는 구성 요소에 대한 설명이다.</p>
+<ul>
+<li><strong>Decapod-base-yaml</strong> <br />
+    SKT가 정의한 Application Group의 구성에 대한 단일 yaml file이다.  Git repo 형태로 제공된다. </li>
+<li><strong>Decapod-site</strong> <br />
+    SKT가 개발한 SW에 의해 Application Group에 적용될 구성/설정이 완료된 단일 yaml file 이다. Git repo의 형태로 제공된다. </li>
+<li><strong>Decapod-manifests</strong> <br />
+    SKT가 개발한 SW에 의해 Decapod-base-yaml(구성)에 Decapod-site(구성/설정)를 해석하여 만드 배포가능한 표준 Kubernetes Resource(yaml files)이다. Git repo의 형태로 제공된다.</li>
+<li><strong>Agro Worflow</strong>  <br />
+    Complex Deployment 문제를 해결하기 위해, 도입한 Workflow Engine으로 SKT가 Application Group별로 개발한 Workflow가 실행된다. Argo CD의 Deployment 순서를 제어한다.   </li>
+<li><strong>Argo CD</strong> <br />
+    GitOps 툴로 decapod-manifests에 저장된 yaml file들을 원하는 Target (Cluster or Public Clutser)에 배포하는 툴이다</li>
+</ul>
+<h1 id="skt-enterprise-kubernetes-solution-gitops-pipeline">SKT Enterprise Kubernetes Solution GitOps pipeline<a class="headerlink" href="#skt-enterprise-kubernetes-solution-gitops-pipeline" title="Permanent link">&para;</a></h1>
+<p>SKT Enterprise Kubernetes Solution의 GitOps pipleline은 Decapod 이다. Decapod는 Kubernetes Cluster도 배포 관리 할 수 있다. 이는 Cluster API라는 기술을 활용 했기 때문이다.
+Cluster API는 Kubernetes Cluster와 Cluster를 구성한는 Server / OS 그리고 Network을 Kubernetes Resource로 관리한다. 따라서 Decapod가 Application Group를 관리하는 방법과 동일 하게 Kubernetes Cluster 자체도 관리 할 수 있다.</p>
+<blockquote>
+<p>Cluster API is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters.</p>
+</blockquote>
+<h2 id="repo">제공되는 Repo<a class="headerlink" href="#repo" title="Permanent link">&para;</a></h2>
+<p>SKT Enterprise Kubernetes Solution의 고객에게는 GitOps 가준, 아래 3개의 Repo를 제공한다.
+[참고] 고객은 Github Organization Account를 사전에 제공해야 한다.
+decapod-base-yaml과 tks-custom-base-yaml 를 기반으로 최종적으로 고객의 custom cluster tempate인 {contact} 를 생성한다.</p>
+<p><strong>고객은 site 변경을 통해 cluster를 customization 할 수 있다.</strong></p>
+<p>ovlery란 단순이 변경이나 치환이 아니라, 추가/삭제/변경 이 모두 가능하다는 의미다.</p>
+<p><div class="highlight"><pre><span></span><code>+----------------------------------+              +-----------------------+
+|            base-yaml             |              |                       |
+|   +--------------------------+   |              |      {contact id}     |
+|   |      tks-custom-yaml     |   |         \    |                       |
+|   +--------------------------+   |          \   |                       |
+|            Overlay  +            | -----------  |     CustomCluster     |
+|   +--------------------------+   |          /   |        Editable       |
+|   |    decapod-base-yaml     |   |         /    |                       |
+|   +--------------------------+   |              |                       |
++----------------------------------+              +-----------------------+
+</code></pre></div>
+- decapod-base-yaml <br />
+    SKT가 Open Source로 관리하는 Application Group의 이다. 고객의 상황에 맞는 Release를 선택한다. 
+    <div class="highlight"><pre><span></span><code>github.com/openinfradev/decapod-base-yaml
+└──  decapod-base-yaml           
+     └── lma
+     <span class="p">|</span>   └── base
+     <span class="p">|</span>   <span class="p">|</span>   ├── kustomization.yaml
+     <span class="p">|</span>   <span class="p">|</span>   ├── resources.yaml       <span class="c1"># default 구성</span>
+     <span class="p">|</span>   <span class="p">|</span>   └── site-values.yaml     <span class="c1"># 구성에 대한 overlay</span>
+     <span class="p">|</span>   └── image
+     <span class="p">|</span>       └── image-values.yaml 
+     └── service-mesh
+         └── base
+         <span class="p">|</span>   ├── kustomization.yaml
+         <span class="p">|</span>   ├── resources.yaml       <span class="c1"># default 구성</span>
+         <span class="p">|</span>   └── site-values.yaml     <span class="c1"># 구성에 대한 overlay</span>
+         └── image
+             └── image-values.yaml
+</code></pre></div></p>
+<ul>
+<li>tks-custom-base-yaml <br />
+    SKT가 Open Source로 관리하는 Application Group 중 Kubernetes cluster에 관한 부분이다. Decapod는 LMA와 같은 Kubernetes위에 올라가는 서비스와 Kubernetes를 같은 체계로 관리한다. 고객의 상황에 맞는 Release를 선택한다. 
+    <div class="highlight"><pre><span></span><code>github.com/openinfradev/tks-clustom-base-yaml
+└──  tks-base-yaml           
+     └── tks-cluster-aws
+         └── base
+             ├── kustomization.yaml
+             ├── resources.yaml       <span class="c1"># default 구성</span>
+             └── site-values.yaml     <span class="c1"># 구성에 대한 overlay</span>
+</code></pre></div></li>
+</ul>
+<h2 id="repo_1">생성되는 Repo<a class="headerlink" href="#repo_1" title="Permanent link">&para;</a></h2>
+<p>SKT가 Open source로 제공하는 base-yaml를 기반으로 TKS가 고객(사용자)의 Git organization에 자동으로 생성하는 Repo 다.</p>
+<ul>
+<li>{contract id} 
+    고객이 사용할 최종 구성/설정이다. 고객에게 제공되는 customized decapod-site 로 Custom Cluster Template 역활을 한다.
+    <strong>고객은 site 변경을 통해 cluster를 customization 할 수 있다.</strong> 
+    <div class="highlight"><pre><span></span><code>github.com/<span class="o">{</span>organization name<span class="o">}</span>
+└── <span class="o">{</span>contract id<span class="o">}</span>               
+    ├── .github
+    │   └── workflows
+    │       ├── merge_main.yml
+    │       ├── render-cd.sh
+    │       └── render.sh
+    └── tmeplate-std
+        ├── lma
+        │   ├── kustomization.yaml│      
+        <span class="p">|</span>   └── site-values.yaml         <span class="c1">## 고객환경에 최적확된 구성 overlay</span>
+        ├── service-mesh
+        │   ├── kustomization.yaml
+        │   └── site-values.yaml         <span class="c1">## 고객환경에 최적확된 구성 overlay</span>
+        └── tks-cluster-aws   
+            ├── kustomization.yaml        
+            └── site-values.yaml         <span class="c1">## 고객환경에 최적확된 구성 overlay</span>
+</code></pre></div></li>
+</ul>
+<p>TKS Service API 호출 (e.g. by CLI)를 통해 TKS Cluster를 생성할 수 있다. Decapod는 GitOps 툴이므로, TKS Cluster 생성/관리를 위해 각 Cluster별로 site와 manifest repo를 생성한다.</p>
+<ul>
+<li>
+<p>{cluster id} 
+    Cluster별 생성되는 site다.
+    site-{contact id}의 복사본으로 site별로 관리되야 할 구성/설정이 적용되어 있다.
+    <div class="highlight"><pre><span></span><code>github.com/<span class="o">{</span>organization name<span class="o">}</span>
+└── <span class="o">{</span>cluster id<span class="o">}</span>                       <span class="c1"># Cluster별 설정값</span>
+    ├── META                           <span class="c1"># Cluster에 대한 설명 metadata</span>
+    ├── .github
+    │   └── workflows
+    │       ├── merge_main.yml
+    │       ├── render-cd.sh
+    │       └── render.sh
+    └── <span class="o">{</span>cluster id<span class="o">}</span>
+        ├── lma
+        │   ├── kustomization.yaml
+        │   └── site-values.yaml
+        ├── service-mesh
+        │   ├── kustomization.yaml
+        │   └── site-values.yaml
+        └── tks-cluster-aws
+           ├── kustomization.yaml
+           └── site-values.yaml
+</code></pre></div></p>
+</li>
+<li>
+<p>{cluster id}-manifests
+    cluster별로 생성되는 manifest다.
+    cluster별로 다른 구성/설정을 GitOps로 관리하기 위해 별도로 생성된다.
+    <div class="highlight"><pre><span></span><code>github.com/<span class="o">{</span>organization name<span class="o">}</span>
+└── <span class="o">{</span>contract id<span class="o">}</span>-manifiest            <span class="c1"># Cluster별 설치되는 Manfiests</span>
+    └── <span class="o">{</span>cluster id<span class="o">}</span>
+        ├── lma
+        ├── service-mesh
+        └── tks-cluster-aws
+</code></pre></div></p>
+</li>
+</ul>
+<h1 id="customcluster">CustomCluster<a class="headerlink" href="#customcluster" title="Permanent link">&para;</a></h1>
+<p>{contract id} repo의 각 Application Group (lma, service-mesh,tks-cluster-aws)의 site-values.yaml file의 변경을 통해 Customization 가능하다.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            맨위로
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../overviewarch/" class="md-footer__link md-footer__link--prev" aria-label="이전: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../awsarch/" class="md-footer__link md-footer__link--next" aria-label="다음: AWS Ref. Architecture" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              AWS Ref. Architecture
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.integrate", "content.code.annotate", "content.tabs.link", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "search.config.lang": "en", "search.config.pipeline": " ", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\uac80\uc0c9", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version.title": "\ubc84\uc804 \uc120\ud0dd"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

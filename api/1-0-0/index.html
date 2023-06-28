@@ -1,0 +1,3088 @@
+
+<!doctype html>
+<html lang="kr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>API Reference - SKT Enterprise Kubernetes Solution</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Korean:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Noto Sans Korean";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SKT Enterprise Kubernetes Solution" class="md-header__button md-logo" aria-label="SKT Enterprise Kubernetes Solution" data-md-component="logo">
+      
+  <img src="../../assets/taco_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SKT Enterprise Kubernetes Solution
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="지우기" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/openinfradev/tks-service-info/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openinfradev/releases
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../quickstart/2-0-0/" class="md-tabs__link">
+      Quick Start
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../releasenotes/2-0-0/" class="md-tabs__link">
+      Release Note
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/overviewarch/" class="md-tabs__link">
+        Architecture
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cli/overview/" class="md-tabs__link">
+        CLI Manual
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../2-0-0/" class="md-tabs__link">
+      API Reference
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ft/about/" class="md-tabs__link">
+        Free Trial Service
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SKT Enterprise Kubernetes Solution" class="md-nav__button md-logo" aria-label="SKT Enterprise Kubernetes Solution" data-md-component="logo">
+      
+  <img src="../../assets/taco_icon.png" alt="logo">
+
+    </a>
+    SKT Enterprise Kubernetes Solution
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/openinfradev/tks-service-info/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openinfradev/releases
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/2-0-0/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../releasenotes/2-0-0/" class="md-nav__link">
+        Release Note
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architecture" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overviewarch/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/tksgitops/" class="md-nav__link">
+        GitOps Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/awsarch/" class="md-nav__link">
+        AWS Ref. Architecture
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          CLI Manual
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CLI Manual" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          CLI Manual
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/install/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" data-md-state="indeterminate" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Command
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Command" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Command
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/tks_cluster/" class="md-nav__link">
+        tks cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/tks_service/" class="md-nav__link">
+        tks service
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-0-0/" class="md-nav__link">
+        API Reference
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Free Trial Service
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Free Trial Service" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Free Trial Service
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ft/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ft/core-concepts/" class="md-nav__link">
+        Core Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ft/getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/openinfradev/tks-service-info/edit/master/docs/api/1-0-0.md" title="이 페이지를 편집" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h1>
+<h2 id="cluster_lcmproto">cluster_lcm.proto<a class="headerlink" href="#cluster_lcmproto" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Services</p>
+<ul>
+<li><a href="#tks_pbclusterlcmservice">ClusterLcmService</a></li>
+</ul>
+</li>
+<li>
+<p>Messages</p>
+<ul>
+<li><a href="#createclusterrequest">CreateClusterRequest</a></li>
+<li><a href="#installappgroupsrequest">InstallAppGroupsRequest</a></li>
+<li><a href="#scaleclusterrequest">ScaleClusterRequest</a></li>
+<li><a href="#uninstallappgroupsrequest">UninstallAppGroupsRequest</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="commonproto">common.proto<a class="headerlink" href="#commonproto" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Messages</p>
+<ul>
+<li><a href="#appgroup">AppGroup</a></li>
+<li><a href="#application">Application</a></li>
+<li><a href="#cluster">Cluster</a></li>
+<li><a href="#clusterconf">ClusterConf</a></li>
+<li><a href="#clusterrawconf">ClusterRawConf</a></li>
+<li><a href="#error">Error</a></li>
+<li><a href="#idrequest">IDRequest</a></li>
+<li><a href="#idresponse">IDResponse</a></li>
+<li><a href="#idsresponse">IDsResponse</a></li>
+<li><a href="#keycloakinfo">KeycloakInfo</a></li>
+<li><a href="#simpleresponse">SimpleResponse</a></li>
+</ul>
+</li>
+<li>
+<p>Enums</p>
+<ul>
+<li><a href="#appgroupstatus">AppGroupStatus</a></li>
+<li><a href="#appgrouptype">AppGroupType</a></li>
+<li><a href="#apptype">AppType</a></li>
+<li><a href="#clusterstatus">ClusterStatus</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#csptype">CspType</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="contractproto">contract.proto<a class="headerlink" href="#contractproto" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Services</p>
+<ul>
+<li><a href="#tks_pbcontractservice">ContractService</a></li>
+</ul>
+</li>
+<li>
+<p>Messages</p>
+<ul>
+<li><a href="#contract">Contract</a></li>
+<li><a href="#contractquota">ContractQuota</a></li>
+<li><a href="#createcontractrequest">CreateContractRequest</a></li>
+<li><a href="#createcontractresponse">CreateContractResponse</a></li>
+<li><a href="#getavailableservicesrequest">GetAvailableServicesRequest</a></li>
+<li><a href="#getavailableservicesresponse">GetAvailableServicesResponse</a></li>
+<li><a href="#getcontractrequest">GetContractRequest</a></li>
+<li><a href="#getcontractresponse">GetContractResponse</a></li>
+<li><a href="#getcontractsrequest">GetContractsRequest</a></li>
+<li><a href="#getcontractsresponse">GetContractsResponse</a></li>
+<li><a href="#getquotarequest">GetQuotaRequest</a></li>
+<li><a href="#getquotaresponse">GetQuotaResponse</a></li>
+<li><a href="#updatequotarequest">UpdateQuotaRequest</a></li>
+<li><a href="#updatequotaresponse">UpdateQuotaResponse</a></li>
+<li><a href="#updateservicesrequest">UpdateServicesRequest</a></li>
+<li><a href="#updateservicesresponse">UpdateServicesResponse</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="infoproto">info.proto<a class="headerlink" href="#infoproto" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Services</p>
+<ul>
+<li><a href="#tks_pbappinfoservice">AppInfoService</a></li>
+<li><a href="#tks_pbclusterinfoservice">ClusterInfoService</a></li>
+<li><a href="#tks_pbcspinfoservice">CspInfoService</a></li>
+<li><a href="#tks_pbkeycloakinfoservice">KeycloakInfoService</a></li>
+</ul>
+</li>
+<li>
+<p>Messages</p>
+<ul>
+<li><a href="#addclusterinforequest">AddClusterInfoRequest</a></li>
+<li><a href="#createappgrouprequest">CreateAppGroupRequest</a></li>
+<li><a href="#createcspinforequest">CreateCSPInfoRequest</a></li>
+<li><a href="#createkeycloakinforequest">CreateKeycloakInfoRequest</a></li>
+<li><a href="#deleteappgrouprequest">DeleteAppGroupRequest</a></li>
+<li><a href="#getappgrouprequest">GetAppGroupRequest</a></li>
+<li><a href="#getappgroupresponse">GetAppGroupResponse</a></li>
+<li><a href="#getappgroupsrequest">GetAppGroupsRequest</a></li>
+<li><a href="#getappgroupsresponse">GetAppGroupsResponse</a></li>
+<li><a href="#getappsrequest">GetAppsRequest</a></li>
+<li><a href="#getappsresponse">GetAppsResponse</a></li>
+<li><a href="#getcspauthresponse">GetCSPAuthResponse</a></li>
+<li><a href="#getcspinforesponse">GetCSPInfoResponse</a></li>
+<li><a href="#getclusterrequest">GetClusterRequest</a></li>
+<li><a href="#getclusterresponse">GetClusterResponse</a></li>
+<li><a href="#getclustersrequest">GetClustersRequest</a></li>
+<li><a href="#getclustersresponse">GetClustersResponse</a></li>
+<li><a href="#getkeycloakinforesponse">GetKeycloakInfoResponse</a></li>
+<li><a href="#updateappgroupstatusrequest">UpdateAppGroupStatusRequest</a></li>
+<li><a href="#updateapprequest">UpdateAppRequest</a></li>
+<li><a href="#updatecspauthrequest">UpdateCSPAuthRequest</a></li>
+<li><a href="#updateclusterconfrequest">UpdateClusterConfRequest</a></li>
+<li><a href="#updateclusterstatusrequest">UpdateClusterStatusRequest</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="tks_pbclusterlcmservice">ClusterLcmService<a class="headerlink" href="#tks_pbclusterlcmservice" title="Permanent link">&para;</a></h1>
+<p>ClusterLcmService is a service to manage cluster's document.</p>
+<h2 id="createcluster">CreateCluster<a class="headerlink" href="#createcluster" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> CreateCluster(<a href="#createclusterrequest">CreateClusterRequest</a>)
+    returns <a href="#idresponse">IDResponse</a></p>
+</blockquote>
+<p>CreateCluster creates a Kubernetes cluster and returns cluster id</p>
+<h2 id="scalecluster">ScaleCluster<a class="headerlink" href="#scalecluster" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> ScaleCluster(<a href="#scaleclusterrequest">ScaleClusterRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>ScaleCluster scales Kubernetes cluster</p>
+<h2 id="deletecluster">DeleteCluster<a class="headerlink" href="#deletecluster" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> DeleteCluster(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>DeleteCluster deletes Kubernetes cluster</p>
+<h2 id="installappgroups">InstallAppGroups<a class="headerlink" href="#installappgroups" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> InstallAppGroups(<a href="#installappgroupsrequest">InstallAppGroupsRequest</a>)
+    returns <a href="#idsresponse">IDsResponse</a></p>
+</blockquote>
+<p>InstallAppGroups installs app groups, returns an array of app group id</p>
+<h2 id="uninstallappgroups">UninstallAppGroups<a class="headerlink" href="#uninstallappgroups" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UninstallAppGroups(<a href="#uninstallappgroupsrequest">UninstallAppGroupsRequest</a>)
+    returns <a href="#idsresponse">IDsResponse</a></p>
+</blockquote>
+<p>UninstallAppGroups uninstalls app groups.</p>
+<h1 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">&para;</a></h1>
+<h2 id="createclusterrequest">CreateClusterRequest<a class="headerlink" href="#createclusterrequest" title="Permanent link">&para;</a></h2>
+<p>CreateClusterRequest is a request to create a Kubernetes cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a contract ID.</td>
+</tr>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is an ID of CSPInfo.</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_name is a cluster name defined by users</td>
+</tr>
+<tr>
+<td>conf</td>
+<td><a href="#clusterrawconf"> ClusterRawConf</a></td>
+<td>conf is a cluster configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installappgroupsrequest">InstallAppGroupsRequest<a class="headerlink" href="#installappgroupsrequest" title="Permanent link">&para;</a></h2>
+<p>InstallAppGroupsRequest requests to install application groups on cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_groups</td>
+<td><a href="#appgroup">repeated AppGroup</a></td>
+<td>apps are applications to install into target cluster.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scaleclusterrequest">ScaleClusterRequest<a class="headerlink" href="#scaleclusterrequest" title="Permanent link">&para;</a></h2>
+<p>ScaleClusterRequest is a request to scale the number of nodes on the cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is Global Unique ID</td>
+</tr>
+<tr>
+<td>master_replicas</td>
+<td><a href="#int32"> int32</a></td>
+<td>master_replicas is the number of master node</td>
+</tr>
+<tr>
+<td>worker_replicas</td>
+<td><a href="#int32"> int32</a></td>
+<td>worker_replicas is the number of worker node</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uninstallappgroupsrequest">UninstallAppGroupsRequest<a class="headerlink" href="#uninstallappgroupsrequest" title="Permanent link">&para;</a></h2>
+<p>UninstallAppGroupsRequest is a request to delete applications on the Cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is Global Unique ID</td>
+</tr>
+<tr>
+<td>app_group_ids</td>
+<td><a href="#string">repeated string</a></td>
+<td>app_group_ids is a array of app_group_id.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="messages_1">Messages<a class="headerlink" href="#messages_1" title="Permanent link">&para;</a></h1>
+<h2 id="appgroup">AppGroup<a class="headerlink" href="#appgroup" title="Permanent link">&para;</a></h2>
+<p>AppGroup represents an application group such as LMA, ServiceMesh.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id for the application group</td>
+</tr>
+<tr>
+<td>app_group_name</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_name is a human-readable name.</td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="#appgrouptype"> AppGroupType</a></td>
+<td>type (LMA/SERVICE_MESH/LMA_EFK)</td>
+</tr>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is a cluster ID to install application.</td>
+</tr>
+<tr>
+<td>workflow_id</td>
+<td><a href="#string"> string</a></td>
+<td>workflow_id is a argo workflow id</td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="#appgroupstatus"> AppGroupStatus</a></td>
+<td>a status of the application eg) Installing/Running/Error</td>
+</tr>
+<tr>
+<td>status_desc</td>
+<td><a href="#string"> string</a></td>
+<td>a status description of the application</td>
+</tr>
+<tr>
+<td>external_label</td>
+<td><a href="#string"> string</a></td>
+<td>external_lable is the label used for globally unique identification</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>created_at is a creatioin timestamp for the application</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>updated_at is a timestamp for the trigger of status change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="application">Application<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
+<p>Application represents each Application.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_id</td>
+<td><a href="#string"> string</a></td>
+<td>id for the application</td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="#apptype"> AppType</a></td>
+<td>type (Prometheus/Grafana/...)</td>
+</tr>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id is an applicagion group ID.</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td><a href="#string"> string</a></td>
+<td>endpoint is a endpoint string.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><a href="#string"> string</a></td>
+<td>metadata is a unstructured information for application.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>created_at is a creatioin timestamp for the application</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>updated_at is a timestamp for the trigger of status change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cluster">Cluster<a class="headerlink" href="#cluster" title="Permanent link">&para;</a></h2>
+<p>Cluster represents each Cluster.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><a href="#string"> string</a></td>
+<td>is is a unique id for the cluster</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="#string"> string</a></td>
+<td>name is a cluster name for users</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>created_at is a creatioin timestamp for the cluster</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>updated_at is a timestamp for the trigger of status change</td>
+</tr>
+<tr>
+<td>workflow_id</td>
+<td><a href="#string"> string</a></td>
+<td>workflow_id is a argo workflow id</td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="#clusterstatus"> ClusterStatus</a></td>
+<td>status is a status of the cluste eg) Installing/Running/Error</td>
+</tr>
+<tr>
+<td>status_desc</td>
+<td><a href="#string"> string</a></td>
+<td>status_desc is a detail description of the cluster status</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a contract ID.</td>
+</tr>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is an ID of CSPInfo.</td>
+</tr>
+<tr>
+<td>conf</td>
+<td><a href="#clusterconf"> ClusterConf</a></td>
+<td>conf is a kubernete cluster configuration</td>
+</tr>
+<tr>
+<td>app_groups</td>
+<td><a href="#appgroup">repeated AppGroup</a></td>
+<td>app_groups is a array of applications</td>
+</tr>
+<tr>
+<td>kubeconfig</td>
+<td><a href="#string"> string</a></td>
+<td>kubeconfig is a default kubeconfig for the cluster</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clusterconf">ClusterConf<a class="headerlink" href="#clusterconf" title="Permanent link">&para;</a></h2>
+<p>ClusterConf represents a Kubernetes cluster configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ssh_key_name</td>
+<td><a href="#string"> string</a></td>
+<td>name of user ssh key for ec2 instance connection</td>
+</tr>
+<tr>
+<td>region</td>
+<td><a href="#string"> string</a></td>
+<td>region is a AWS region name</td>
+</tr>
+<tr>
+<td>num_of_az</td>
+<td><a href="#int32"> int32</a></td>
+<td>number of AZ in selected region</td>
+</tr>
+<tr>
+<td>machine_type</td>
+<td><a href="#string"> string</a></td>
+<td>type of the worker machine</td>
+</tr>
+<tr>
+<td>min_size_per_az</td>
+<td><a href="#int32"> int32</a></td>
+<td>minimum number of worker node that can be scaled in</td>
+</tr>
+<tr>
+<td>max_size_per_az</td>
+<td><a href="#int32"> int32</a></td>
+<td>maximum number of worker node that can be scaled out</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clusterrawconf">ClusterRawConf<a class="headerlink" href="#clusterrawconf" title="Permanent link">&para;</a></h2>
+<p>ClusterRawConf represents raw data for K8S cluster configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ssh_key_name</td>
+<td><a href="#string"> string</a></td>
+<td>name of user ssh key for ec2 instance connection</td>
+</tr>
+<tr>
+<td>region</td>
+<td><a href="#string"> string</a></td>
+<td>region is a AWS region name</td>
+</tr>
+<tr>
+<td>num_of_az</td>
+<td><a href="#int32"> int32</a></td>
+<td>number of AZ in selected region</td>
+</tr>
+<tr>
+<td>machine_type</td>
+<td><a href="#string"> string</a></td>
+<td>type of the worker machine</td>
+</tr>
+<tr>
+<td>machine_replicas</td>
+<td><a href="#int32"> int32</a></td>
+<td>number of replicas for worker machine</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error">Error<a class="headerlink" href="#error" title="Permanent link">&para;</a></h2>
+<p>Error represents a detailed error for gRPC request.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td><a href="#string"> string</a></td>
+<td>msg is an error message.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="idrequest">IDRequest<a class="headerlink" href="#idrequest" title="Permanent link">&para;</a></h2>
+<p>IDRequest is a request with a id</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><a href="#string"> string</a></td>
+<td>id is a id to ask</td>
+</tr>
+</tbody>
+</table>
+<h2 id="idresponse">IDResponse<a class="headerlink" href="#idresponse" title="Permanent link">&para;</a></h2>
+<p>IDResponse returns a id</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="#string"> string</a></td>
+<td>id is a id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="idsresponse">IDsResponse<a class="headerlink" href="#idsresponse" title="Permanent link">&para;</a></h2>
+<p>IDsResponse returns arry of ids</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>ids</td>
+<td><a href="#string">repeated string</a></td>
+<td>ids is a array of ids</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keycloakinfo">KeycloakInfo<a class="headerlink" href="#keycloakinfo" title="Permanent link">&para;</a></h2>
+<p>KeycloakInfo represents a keycloak info.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>Id for cluster</td>
+</tr>
+<tr>
+<td>realm</td>
+<td><a href="#string"> string</a></td>
+<td>Realm</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td><a href="#string"> string</a></td>
+<td>Client Id</td>
+</tr>
+<tr>
+<td>secret</td>
+<td><a href="#string"> string</a></td>
+<td>Secret key</td>
+</tr>
+<tr>
+<td>private_key</td>
+<td><a href="#string"> string</a></td>
+<td>Private key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="simpleresponse">SimpleResponse<a class="headerlink" href="#simpleresponse" title="Permanent link">&para;</a></h2>
+<p>SimpleResponse returns a result for the request (the simplest return type)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="enums">Enums<a class="headerlink" href="#enums" title="Permanent link">&para;</a></h1>
+<h2 id="appgroupstatus">AppGroupStatus<a class="headerlink" href="#appgroupstatus" title="Permanent link">&para;</a></h2>
+<p>AppGroupStatus represents a status of the application group</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APP_GROUP_UNSPECIFIED</td>
+<td>0</td>
+<td>none</td>
+</tr>
+<tr>
+<td>APP_GROUP_INSTALLING</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>APP_GROUP_RUNNING</td>
+<td>2</td>
+<td>none</td>
+</tr>
+<tr>
+<td>APP_GROUP_DELETING</td>
+<td>4</td>
+<td>none</td>
+</tr>
+<tr>
+<td>APP_GROUP_DELETED</td>
+<td>5</td>
+<td>none</td>
+</tr>
+<tr>
+<td>APP_GROUP_ERROR</td>
+<td>6</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="appgrouptype">AppGroupType<a class="headerlink" href="#appgrouptype" title="Permanent link">&para;</a></h2>
+<p>AppGroupType is types of app group</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APP_TYPE_UNSPECIFIED</td>
+<td>0</td>
+<td>none</td>
+</tr>
+<tr>
+<td>LMA</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>SERVICE_MESH</td>
+<td>2</td>
+<td>none</td>
+</tr>
+<tr>
+<td>LMA_EFK</td>
+<td>3</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="apptype">AppType<a class="headerlink" href="#apptype" title="Permanent link">&para;</a></h2>
+<p>AppType is a type of application.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EP_UNSPECIFIED</td>
+<td>0</td>
+<td>none</td>
+</tr>
+<tr>
+<td>THANOS</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>PROMETHEUS</td>
+<td>2</td>
+<td>none</td>
+</tr>
+<tr>
+<td>GRAFANA</td>
+<td>3</td>
+<td>none</td>
+</tr>
+<tr>
+<td>KIALI</td>
+<td>4</td>
+<td>none</td>
+</tr>
+<tr>
+<td>KIBANA</td>
+<td>5</td>
+<td>none</td>
+</tr>
+<tr>
+<td>ELASTICSERCH</td>
+<td>6</td>
+<td>none</td>
+</tr>
+<tr>
+<td>CLOUD_CONSOLE</td>
+<td>7</td>
+<td>none</td>
+</tr>
+<tr>
+<td>HORIZON</td>
+<td>8</td>
+<td>none</td>
+</tr>
+<tr>
+<td>JAEGER</td>
+<td>9</td>
+<td>none</td>
+</tr>
+<tr>
+<td>KUBERNETES_DASHBOARD</td>
+<td>10</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clusterstatus">ClusterStatus<a class="headerlink" href="#clusterstatus" title="Permanent link">&para;</a></h2>
+<p>ClusterStatus represents a status of the cluster</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNSPECIFIED</td>
+<td>0</td>
+<td>none</td>
+</tr>
+<tr>
+<td>INSTALLING</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>2</td>
+<td>none</td>
+</tr>
+<tr>
+<td>DELETING</td>
+<td>4</td>
+<td>none</td>
+</tr>
+<tr>
+<td>DELETED</td>
+<td>5</td>
+<td>none</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>6</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<p>Code is a response code for gRpc request.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK_UNSPECIFIED</td>
+<td>0</td>
+<td>none</td>
+</tr>
+<tr>
+<td>CANCELLED</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>2</td>
+<td>none</td>
+</tr>
+<tr>
+<td>INVALID_ARGUMENT</td>
+<td>3</td>
+<td>none</td>
+</tr>
+<tr>
+<td>DEADLINE_EXCEEDED</td>
+<td>4</td>
+<td>none</td>
+</tr>
+<tr>
+<td>NOT_FOUND</td>
+<td>5</td>
+<td>none</td>
+</tr>
+<tr>
+<td>ALREADY_EXISTS</td>
+<td>6</td>
+<td>none</td>
+</tr>
+<tr>
+<td>PERMISSION_DENIED</td>
+<td>7</td>
+<td>none</td>
+</tr>
+<tr>
+<td>UNAUTHENTICATED</td>
+<td>16</td>
+<td>none</td>
+</tr>
+<tr>
+<td>RESOURCE_EXHAUSTED</td>
+<td>8</td>
+<td>none</td>
+</tr>
+<tr>
+<td>FAILED_PRECONDITION</td>
+<td>9</td>
+<td>none</td>
+</tr>
+<tr>
+<td>ABORTED</td>
+<td>10</td>
+<td>none</td>
+</tr>
+<tr>
+<td>OUT_OF_RANGE</td>
+<td>11</td>
+<td>none</td>
+</tr>
+<tr>
+<td>UNIMPLEMENTED</td>
+<td>12</td>
+<td>none</td>
+</tr>
+<tr>
+<td>INTERNAL</td>
+<td>13</td>
+<td>none</td>
+</tr>
+<tr>
+<td>UNAVAILABLE</td>
+<td>14</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="csptype">CspType<a class="headerlink" href="#csptype" title="Permanent link">&para;</a></h2>
+<p>CspType is types of cloud service provider</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSPTYPE_UNSPECIFIED</td>
+<td>0</td>
+<td>none</td>
+</tr>
+<tr>
+<td>AWS</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>GCP</td>
+<td>2</td>
+<td>none</td>
+</tr>
+<tr>
+<td>AZURE</td>
+<td>3</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h1 id="tks_pbcontractservice">ContractService<a class="headerlink" href="#tks_pbcontractservice" title="Permanent link">&para;</a></h1>
+<p>ContractService is a service to manage contract's document.</p>
+<h2 id="createcontract">CreateContract<a class="headerlink" href="#createcontract" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> CreateContract(<a href="#createcontractrequest">CreateContractRequest</a>)
+    returns <a href="#createcontractresponse">CreateContractResponse</a></p>
+</blockquote>
+<p>CreateContract creates new contract.</p>
+<h2 id="updatequota">UpdateQuota<a class="headerlink" href="#updatequota" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateQuota(<a href="#updatequotarequest">UpdateQuotaRequest</a>)
+    returns <a href="#updatequotaresponse">UpdateQuotaResponse</a></p>
+</blockquote>
+<p>UpdateQuota updates quota of the contract.</p>
+<h2 id="updateservices">UpdateServices<a class="headerlink" href="#updateservices" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateServices(<a href="#updateservicesrequest">UpdateServicesRequest</a>)
+    returns <a href="#updateservicesresponse">UpdateServicesResponse</a></p>
+</blockquote>
+<p>UpdateServices updates list of available services of the contract.</p>
+<h2 id="getcontract">GetContract<a class="headerlink" href="#getcontract" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetContract(<a href="#getcontractrequest">GetContractRequest</a>)
+    returns <a href="#getcontractresponse">GetContractResponse</a></p>
+</blockquote>
+<p>GetContract returns a contract if exists.</p>
+<h2 id="getdefaultcontract">GetDefaultContract<a class="headerlink" href="#getdefaultcontract" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetDefaultContract(<a href="#googleprotobufempty">.google.protobuf.Empty</a>)
+    returns <a href="#getcontractresponse">GetContractResponse</a></p>
+</blockquote>
+<p>GetDefaultContract returns a default contract.</p>
+<h2 id="getcontracts">GetContracts<a class="headerlink" href="#getcontracts" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetContracts(<a href="#getcontractsrequest">GetContractsRequest</a>)
+    returns <a href="#getcontractsresponse">GetContractsResponse</a></p>
+</blockquote>
+<p>Getcontracts return a list of contract.</p>
+<h2 id="getquota">GetQuota<a class="headerlink" href="#getquota" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetQuota(<a href="#getquotarequest">GetQuotaRequest</a>)
+    returns <a href="#getquotaresponse">GetQuotaResponse</a></p>
+</blockquote>
+<p>GetQuota returns a quota for the contract.</p>
+<h2 id="getavailableservices">GetAvailableServices<a class="headerlink" href="#getavailableservices" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetAvailableServices(<a href="#getavailableservicesrequest">GetAvailableServicesRequest</a>)
+    returns <a href="#getavailableservicesresponse">GetAvailableServicesResponse</a></p>
+</blockquote>
+<p>GetAvailableServices returns list of available services for the contract.</p>
+<h1 id="messages_2">Messages<a class="headerlink" href="#messages_2" title="Permanent link">&para;</a></h1>
+<h2 id="contract">Contract<a class="headerlink" href="#contract" title="Permanent link">&para;</a></h2>
+<p>Contract is a contract information.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contractor_name</td>
+<td><a href="#string"> string</a></td>
+<td>contractor_name is a name of contractor</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+<tr>
+<td>quota</td>
+<td><a href="#contractquota"> ContractQuota</a></td>
+<td>quota is a resource quota for cpu, memory, storage and so on.</td>
+</tr>
+<tr>
+<td>available_services</td>
+<td><a href="#string">repeated string</a></td>
+<td>availavle_services is a list of services constomer purchased.</td>
+</tr>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is a global unique ID created by the info service.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>updated_at is a timestamp last updated.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td><a href="#googleprotobuftimestamp"> google.protobuf.Timestamp</a></td>
+<td>created_at is a timestamp created.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contractquota">ContractQuota<a class="headerlink" href="#contractquota" title="Permanent link">&para;</a></h2>
+<p>ContractQuota is a resource quota for total usage in clusters.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu</td>
+<td><a href="#sint64"> sint64</a></td>
+<td>cpu unit(GB) from 10 to 10000</td>
+</tr>
+<tr>
+<td>memory</td>
+<td><a href="#sint64"> sint64</a></td>
+<td>memory unit(MB) from 40 to 40000</td>
+</tr>
+<tr>
+<td>block</td>
+<td><a href="#sint64"> sint64</a></td>
+<td>block storage(MB) from 0 to 256000000</td>
+</tr>
+<tr>
+<td>block_ssd</td>
+<td><a href="#sint64"> sint64</a></td>
+<td>block ssd storage(MB) from 0 to 256000000</td>
+</tr>
+<tr>
+<td>fs</td>
+<td><a href="#sint64"> sint64</a></td>
+<td>filesystem (MB) from 0 to 256000000</td>
+</tr>
+<tr>
+<td>fs_ssd</td>
+<td><a href="#sint64"> sint64</a></td>
+<td>SSD filesystem (MB) from 0 to 256000000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createcontractrequest">CreateContractRequest<a class="headerlink" href="#createcontractrequest" title="Permanent link">&para;</a></h2>
+<p>CreateContractRequest is a request to create new contract 
+to the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contractor_name</td>
+<td><a href="#string"> string</a></td>
+<td>contractor_name is a name of contractor</td>
+</tr>
+<tr>
+<td>quota</td>
+<td><a href="#contractquota"> ContractQuota</a></td>
+<td>quota is a resource quota for this contract</td>
+</tr>
+<tr>
+<td>available_services</td>
+<td><a href="#string">repeated string</a></td>
+<td>availavle_services is a list of services constomer purchased.</td>
+</tr>
+<tr>
+<td>csp_name</td>
+<td><a href="#string"> string</a></td>
+<td>csp_name is a name of csp for user.</td>
+</tr>
+<tr>
+<td>csp_auth</td>
+<td><a href="#string"> string</a></td>
+<td>csp_auth is an authentication information for IaaS Provider.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createcontractresponse">CreateContractResponse<a class="headerlink" href="#createcontractresponse" title="Permanent link">&para;</a></h2>
+<p>CreateContractResponse is a response to the CreateContractRequest request 
+ from the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is a global unique ID created by the info service.</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by the contract service.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getavailableservicesrequest">GetAvailableServicesRequest<a class="headerlink" href="#getavailableservicesrequest" title="Permanent link">&para;</a></h2>
+<p>GetAvailableServicesRequest is a request to get available service list 
+ for the specific contract.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by the contract service.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getavailableservicesresponse">GetAvailableServicesResponse<a class="headerlink" href="#getavailableservicesresponse" title="Permanent link">&para;</a></h2>
+<p>GetAvailableServicesResponse is a response to the GetAvailableServicesRequest
+ from the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>avaiable_service_apps</td>
+<td><a href="#string">repeated string</a></td>
+<td>availavle_services is a list of services constomer purchased.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getcontractrequest">GetContractRequest<a class="headerlink" href="#getcontractrequest" title="Permanent link">&para;</a></h2>
+<p>GetContractRequest is a request to inquire contract to the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getcontractresponse">GetContractResponse<a class="headerlink" href="#getcontractresponse" title="Permanent link">&para;</a></h2>
+<p>GetContractResponse is a response to the GetContractRequest 
+ from the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>contract</td>
+<td><a href="#contract"> Contract</a></td>
+<td>contract is a contract information.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getcontractsrequest">GetContractsRequest<a class="headerlink" href="#getcontractsrequest" title="Permanent link">&para;</a></h2>
+<p>GetContractsRequest is a request to inquire all contracts 
+ to the contract service.</p>
+<h2 id="getcontractsresponse">GetContractsResponse<a class="headerlink" href="#getcontractsresponse" title="Permanent link">&para;</a></h2>
+<p>GetContractsResponse is a response to the GetContractsRequest 
+ from the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>contracts</td>
+<td><a href="#contract">repeated Contract</a></td>
+<td>contracts is a list of contracts.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getquotarequest">GetQuotaRequest<a class="headerlink" href="#getquotarequest" title="Permanent link">&para;</a></h2>
+<p>GetQuotaRequest is a request to inquire quota information 
+ of the specific contract.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getquotaresponse">GetQuotaResponse<a class="headerlink" href="#getquotaresponse" title="Permanent link">&para;</a></h2>
+<p>GetQuotaResponse is a response to the GetQuotaRequest 
+ from the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>quota</td>
+<td><a href="#contractquota"> ContractQuota</a></td>
+<td>quota is a resource quota for cpu, memory, storage and so on.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updatequotarequest">UpdateQuotaRequest<a class="headerlink" href="#updatequotarequest" title="Permanent link">&para;</a></h2>
+<p>UpdateQuotaRequest is a request to update resource quota 
+ for specific contract.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+<tr>
+<td>quota</td>
+<td><a href="#contractquota"> ContractQuota</a></td>
+<td>quota is a resource quota for cpu, memory, storage and so on.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updatequotaresponse">UpdateQuotaResponse<a class="headerlink" href="#updatequotaresponse" title="Permanent link">&para;</a></h2>
+<p>UpdateQuotaResponse is a response to the UpdateQuotaRequest 
+from the contract service</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+<tr>
+<td>prev_quota</td>
+<td><a href="#contractquota"> ContractQuota</a></td>
+<td>prev_quota is a quota before updating quota.</td>
+</tr>
+<tr>
+<td>current_quota</td>
+<td><a href="#contractquota"> ContractQuota</a></td>
+<td>current_quota is a quota after updating.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updateservicesrequest">UpdateServicesRequest<a class="headerlink" href="#updateservicesrequest" title="Permanent link">&para;</a></h2>
+<p>UpdateServicesRequest is a request 
+ to update available service list to the contract service.
+The services currently provided are as below:
+  - LMA(Logging Monitoring Alert)
+  - service-mesh (Istio, jaeger, kiali)</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+<tr>
+<td>available_services</td>
+<td><a href="#string">repeated string</a></td>
+<td>availavle_services is a list of services constomer purchased.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updateservicesresponse">UpdateServicesResponse<a class="headerlink" href="#updateservicesresponse" title="Permanent link">&para;</a></h2>
+<p>UpdateServicesResponse is a response 
+ to the UpdateServicesRequest from the contract service.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a global unique ID created by CBP</td>
+</tr>
+<tr>
+<td>prev_services</td>
+<td><a href="#string">repeated string</a></td>
+<td>prev_services is a list of services before updating.</td>
+</tr>
+<tr>
+<td>current_services</td>
+<td><a href="#string">repeated string</a></td>
+<td>current_services is a list of services after updating.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="tks_pbappinfoservice">AppInfoService<a class="headerlink" href="#tks_pbappinfoservice" title="Permanent link">&para;</a></h1>
+<p>AppInfoService is a service to manage Application info document.</p>
+<h2 id="createappgroup">CreateAppGroup<a class="headerlink" href="#createappgroup" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> CreateAppGroup(<a href="#createappgrouprequest">CreateAppGroupRequest</a>)
+    returns <a href="#idresponse">IDResponse</a></p>
+</blockquote>
+<p>CreateAppGroup creates a new application group.</p>
+<h2 id="getappgroupsbyclusterid">GetAppGroupsByClusterID<a class="headerlink" href="#getappgroupsbyclusterid" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetAppGroupsByClusterID(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#getappgroupsresponse">GetAppGroupsResponse</a></p>
+</blockquote>
+<p>GetAppGroupsByClusterID gets an array of app infos By the clusterID</p>
+<h2 id="getappgroups">GetAppGroups<a class="headerlink" href="#getappgroups" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetAppGroups(<a href="#getappgroupsrequest">GetAppGroupsRequest</a>)
+    returns <a href="#getappgroupsresponse">GetAppGroupsResponse</a></p>
+</blockquote>
+<p>GetAppGroups gets an array of app infos by name &amp; type in the cluster</p>
+<h2 id="getappgroup">GetAppGroup<a class="headerlink" href="#getappgroup" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetAppGroup(<a href="#getappgrouprequest">GetAppGroupRequest</a>)
+    returns <a href="#getappgroupresponse">GetAppGroupResponse</a></p>
+</blockquote>
+<p>GetAppGroup gets an application group by application group ID</p>
+<h2 id="updateappgroupstatus">UpdateAppGroupStatus<a class="headerlink" href="#updateappgroupstatus" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateAppGroupStatus(<a href="#updateappgroupstatusrequest">UpdateAppGroupStatusRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>UpdateAppGroupStatus updates a status of an application group</p>
+<h2 id="deleteappgroup">DeleteAppGroup<a class="headerlink" href="#deleteappgroup" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> DeleteAppGroup(<a href="#deleteappgrouprequest">DeleteAppGroupRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>DeleteAppGroup deletes an app group.</p>
+<h2 id="getappsbyappgroupid">GetAppsByAppGroupID<a class="headerlink" href="#getappsbyappgroupid" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetAppsByAppGroupID(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#getappsresponse">GetAppsResponse</a></p>
+</blockquote>
+<p>GetAppsByClusterID gets applications by application group id.</p>
+<h2 id="getapps">GetApps<a class="headerlink" href="#getapps" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetApps(<a href="#getappsrequest">GetAppsRequest</a>)
+    returns <a href="#getappsresponse">GetAppsResponse</a></p>
+</blockquote>
+<p>GetApps gets applications by application type and application id.</p>
+<h2 id="updateapp">UpdateApp<a class="headerlink" href="#updateapp" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateApp(<a href="#updateapprequest">UpdateAppRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>UpdateApp updates application data.</p>
+<h1 id="tks_pbclusterinfoservice">ClusterInfoService<a class="headerlink" href="#tks_pbclusterinfoservice" title="Permanent link">&para;</a></h1>
+<p>ClusterInfoService is a service to manage cluster info document.</p>
+<h2 id="addclusterinfo">AddClusterInfo<a class="headerlink" href="#addclusterinfo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> AddClusterInfo(<a href="#addclusterinforequest">AddClusterInfoRequest</a>)
+    returns <a href="#idresponse">IDResponse</a></p>
+</blockquote>
+<p>AddClusterInfo adds new cluster information</p>
+<h2 id="updateclusterconf">UpdateClusterConf<a class="headerlink" href="#updateclusterconf" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateClusterConf(<a href="#updateclusterconfrequest">UpdateClusterConfRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>UpdateClusterConf updates the cluster configuration information</p>
+<h2 id="getcluster">GetCluster<a class="headerlink" href="#getcluster" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetCluster(<a href="#getclusterrequest">GetClusterRequest</a>)
+    returns <a href="#getclusterresponse">GetClusterResponse</a></p>
+</blockquote>
+<p>GetCluster gets cluster info for the id of the cluster</p>
+<h2 id="getclusters">GetClusters<a class="headerlink" href="#getclusters" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetClusters(<a href="#getclustersrequest">GetClustersRequest</a>)
+    returns <a href="#getclustersresponse">GetClustersResponse</a></p>
+</blockquote>
+<p>GetClusters get every clusters on the mutlcluster</p>
+<h2 id="updateclusterstatus">UpdateClusterStatus<a class="headerlink" href="#updateclusterstatus" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateClusterStatus(<a href="#updateclusterstatusrequest">UpdateClusterStatusRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>UpdateClusterStatus update Status of the Cluster</p>
+<h1 id="tks_pbcspinfoservice">CspInfoService<a class="headerlink" href="#tks_pbcspinfoservice" title="Permanent link">&para;</a></h1>
+<p>CspInfoService is a service to manage CSP info document.</p>
+<h2 id="createcspinfo">CreateCSPInfo<a class="headerlink" href="#createcspinfo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> CreateCSPInfo(<a href="#createcspinforequest">CreateCSPInfoRequest</a>)
+    returns <a href="#idresponse">IDResponse</a></p>
+</blockquote>
+<p>CreateCSPInfo create new CSP Info for the contract id.</p>
+<h2 id="getcspinfo">GetCSPInfo<a class="headerlink" href="#getcspinfo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetCSPInfo(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#getcspinforesponse">GetCSPInfoResponse</a></p>
+</blockquote>
+<p>GetCSPInfo returns an csp info by csp id.</p>
+<h2 id="getcspids">GetCSPIDs<a class="headerlink" href="#getcspids" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetCSPIDs(<a href="#googleprotobufempty">.google.protobuf.Empty</a>)
+    returns <a href="#idsresponse">IDsResponse</a></p>
+</blockquote>
+<p>GetCSPIDs returns all CSP ids.</p>
+<h2 id="getcspidsbycontractid">GetCSPIDsByContractID<a class="headerlink" href="#getcspidsbycontractid" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetCSPIDsByContractID(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#idsresponse">IDsResponse</a></p>
+</blockquote>
+<p>GetCSPIDsByContractID returns the CSP ids by the contract id.</p>
+<h2 id="updatecspauth">UpdateCSPAuth<a class="headerlink" href="#updatecspauth" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateCSPAuth(<a href="#updatecspauthrequest">UpdateCSPAuthRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>UpdateCSPInfo updates an authentication config for CSP.</p>
+<h2 id="getcspauth">GetCSPAuth<a class="headerlink" href="#getcspauth" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetCSPAuth(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#getcspauthresponse">GetCSPAuthResponse</a></p>
+</blockquote>
+<p>GetCSPAuth returns an authentication info by csp id.</p>
+<h1 id="tks_pbkeycloakinfoservice">KeycloakInfoService<a class="headerlink" href="#tks_pbkeycloakinfoservice" title="Permanent link">&para;</a></h1>
+<p>KeycloakInfoService is a service to manage Keycloak info.</p>
+<h2 id="createkeycloakinfo">CreateKeycloakInfo<a class="headerlink" href="#createkeycloakinfo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> CreateKeycloakInfo(<a href="#createkeycloakinforequest">CreateKeycloakInfoRequest</a>)
+    returns <a href="#idresponse">IDResponse</a></p>
+</blockquote>
+<p>CreateKeycloakInfo creates a new keycloak info.</p>
+<h2 id="getkeycloakinfobyclusterid">GetKeycloakInfoByClusterId<a class="headerlink" href="#getkeycloakinfobyclusterid" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> GetKeycloakInfoByClusterId(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#getkeycloakinforesponse">GetKeycloakInfoResponse</a></p>
+</blockquote>
+<p>GetKeycloakInfoByClusterId gets an array of keycloak infos By the clusterID</p>
+<h2 id="updatekeycloakinfo">UpdateKeycloakInfo<a class="headerlink" href="#updatekeycloakinfo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> UpdateKeycloakInfo(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>UpdateKeycloakInfo updates a status of an keycloak info</p>
+<h2 id="deletekeycloakinfo">DeleteKeycloakInfo<a class="headerlink" href="#deletekeycloakinfo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>rpc</strong> DeleteKeycloakInfo(<a href="#idrequest">IDRequest</a>)
+    returns <a href="#simpleresponse">SimpleResponse</a></p>
+</blockquote>
+<p>DeleteKeycloakInfo deletes an keycloak info.</p>
+<h1 id="messages_3">Messages<a class="headerlink" href="#messages_3" title="Permanent link">&para;</a></h1>
+<h2 id="addclusterinforequest">AddClusterInfoRequest<a class="headerlink" href="#addclusterinforequest" title="Permanent link">&para;</a></h2>
+<p>AddClusterInfoRequest is used to add a new cluster info</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a contract ID.</td>
+</tr>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is an ID of CSPInfo.</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_name is a cluster name defined by users</td>
+</tr>
+<tr>
+<td>conf</td>
+<td><a href="#clusterconf"> ClusterConf</a></td>
+<td>conf is a cluster configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createappgrouprequest">CreateAppGroupRequest<a class="headerlink" href="#createappgrouprequest" title="Permanent link">&para;</a></h2>
+<p>CreateAppGroupRequest is used to create a new app group.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is a cluster ID</td>
+</tr>
+<tr>
+<td>app_group</td>
+<td><a href="#appgroup"> AppGroup</a></td>
+<td>app_group is an application group</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createcspinforequest">CreateCSPInfoRequest<a class="headerlink" href="#createcspinforequest" title="Permanent link">&para;</a></h2>
+<p>CreateCSPInfoRequest is used to create a new CSP Info</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is Global Unique MultiCluster ID</td>
+</tr>
+<tr>
+<td>csp_name</td>
+<td><a href="#string"> string</a></td>
+<td>csp_name is a name for users</td>
+</tr>
+<tr>
+<td>auth</td>
+<td><a href="#string"> string</a></td>
+<td>auth is an optional. This is an authentication info for IaaS.</td>
+</tr>
+<tr>
+<td>csp_type</td>
+<td><a href="#csptype"> CspType</a></td>
+<td>csp_type is a type of cloud service provider.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createkeycloakinforequest">CreateKeycloakInfoRequest<a class="headerlink" href="#createkeycloakinforequest" title="Permanent link">&para;</a></h2>
+<p>CreateKeycloakInfoRequest is used to create a new keycloak Info</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>Id for cluster</td>
+</tr>
+<tr>
+<td>realm</td>
+<td><a href="#string"> string</a></td>
+<td>Realm</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td><a href="#string"> string</a></td>
+<td>Client Id</td>
+</tr>
+<tr>
+<td>secret</td>
+<td><a href="#string"> string</a></td>
+<td>Secret</td>
+</tr>
+<tr>
+<td>private_key</td>
+<td><a href="#string"> string</a></td>
+<td>Private key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deleteappgrouprequest">DeleteAppGroupRequest<a class="headerlink" href="#deleteappgrouprequest" title="Permanent link">&para;</a></h2>
+<p>DeleteAppGroupRequest is used to delete app group.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id is an app group id to delete.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getappgrouprequest">GetAppGroupRequest<a class="headerlink" href="#getappgrouprequest" title="Permanent link">&para;</a></h2>
+<p>GetAppGroupRequest returns an array of application groups on the cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id is an id of the application group</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getappgroupresponse">GetAppGroupResponse<a class="headerlink" href="#getappgroupresponse" title="Permanent link">&para;</a></h2>
+<p>GetAppGroupResponse contains an array of application groups.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>app_group</td>
+<td><a href="#appgroup"> AppGroup</a></td>
+<td>app_group is an application group</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getappgroupsrequest">GetAppGroupsRequest<a class="headerlink" href="#getappgroupsrequest" title="Permanent link">&para;</a></h2>
+<p>GetAppGroupsRequest is used to get an array of application infos on cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_name</td>
+<td><a href="#string"> string</a></td>
+<td>app_name is a name of the application</td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="#appgrouptype"> AppGroupType</a></td>
+<td>app_type is a type of the application</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getappgroupsresponse">GetAppGroupsResponse<a class="headerlink" href="#getappgroupsresponse" title="Permanent link">&para;</a></h2>
+<p>GetAppGroupsResponse contains an array of application infos.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>app_groups</td>
+<td><a href="#appgroup">repeated AppGroup</a></td>
+<td>app_groups is an array of applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getappsrequest">GetAppsRequest<a class="headerlink" href="#getappsrequest" title="Permanent link">&para;</a></h2>
+<p>GetAppsRequest returns an array of applications</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id is a name of the application</td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="#apptype"> AppType</a></td>
+<td>app_type is a type of the application</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getappsresponse">GetAppsResponse<a class="headerlink" href="#getappsresponse" title="Permanent link">&para;</a></h2>
+<p>GetAppsResponse returns an array of applications.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>apps</td>
+<td><a href="#application">repeated Application</a></td>
+<td>app_groups is an array of applications</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getcspauthresponse">GetCSPAuthResponse<a class="headerlink" href="#getcspauthresponse" title="Permanent link">&para;</a></h2>
+<p>GetCSPAuthResponse is used to get an authentication information by
+  csp id.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>auth</td>
+<td><a href="#string"> string</a></td>
+<td>auth is an authentication info stiringified in JSON.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getcspinforesponse">GetCSPInfoResponse<a class="headerlink" href="#getcspinforesponse" title="Permanent link">&para;</a></h2>
+<p>GetCSPInfoResponse is used to get info of csp</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>contract_id is a contract ID.</td>
+</tr>
+<tr>
+<td>csp_name</td>
+<td><a href="#string"> string</a></td>
+<td>csp_name is a name for users</td>
+</tr>
+<tr>
+<td>auth</td>
+<td><a href="#string"> string</a></td>
+<td>auth is an optional. This is an authentication info for IaaS.</td>
+</tr>
+<tr>
+<td>csp_type</td>
+<td><a href="#csptype"> CspType</a></td>
+<td>csp_type is a type of cloud service provider.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getclusterrequest">GetClusterRequest<a class="headerlink" href="#getclusterrequest" title="Permanent link">&para;</a></h2>
+<p>GetClusterRequest is used to get info of MultiCluster to correspond with id</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is a cluster ID</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getclusterresponse">GetClusterResponse<a class="headerlink" href="#getclusterresponse" title="Permanent link">&para;</a></h2>
+<p>GetClusterResponse contains a cluster info.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>cluster</td>
+<td><a href="#cluster"> Cluster</a></td>
+<td>cluster is info for the cluster</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getclustersrequest">GetClustersRequest<a class="headerlink" href="#getclustersrequest" title="Permanent link">&para;</a></h2>
+<p>GetClustersRequest returns a list of clusters in specific CSP.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is a Global Unique ID</td>
+</tr>
+<tr>
+<td>contract_id</td>
+<td><a href="#string"> string</a></td>
+<td>Unique contract ID</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getclustersresponse">GetClustersResponse<a class="headerlink" href="#getclustersresponse" title="Permanent link">&para;</a></h2>
+<p>GetClustersResponse contains an array of cluster infos.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>error is a detailed error message.</td>
+</tr>
+<tr>
+<td>clusters</td>
+<td><a href="#cluster">repeated Cluster</a></td>
+<td>cluster is info. for the cluster</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getkeycloakinforesponse">GetKeycloakInfoResponse<a class="headerlink" href="#getkeycloakinforesponse" title="Permanent link">&para;</a></h2>
+<p>GetKeycloakInfoResponse returns an array of keycloak infos</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td><a href="#code"> Code</a></td>
+<td>code is a response code.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="#error"> Error</a></td>
+<td>orror is a detailed error message.</td>
+</tr>
+<tr>
+<td>keycloak_infos</td>
+<td><a href="#keycloakinfo">repeated KeycloakInfo</a></td>
+<td>keycloakInfos is a detailed keycloak info.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updateappgroupstatusrequest">UpdateAppGroupStatusRequest<a class="headerlink" href="#updateappgroupstatusrequest" title="Permanent link">&para;</a></h2>
+<p>UpdateAppGroupStatusRequest is used to change the status of the app</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id is the application group id to change the status</td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="#appgroupstatus"> AppGroupStatus</a></td>
+<td>status is a AppStatus of the application</td>
+</tr>
+<tr>
+<td>status_desc</td>
+<td><a href="#string"> string</a></td>
+<td>status_desc is a detail message of cluster status.</td>
+</tr>
+<tr>
+<td>workflow_id</td>
+<td><a href="#string"> string</a></td>
+<td>workflow_id is a argo workflow ID(name)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updateapprequest">UpdateAppRequest<a class="headerlink" href="#updateapprequest" title="Permanent link">&para;</a></h2>
+<p>UpdateAppRequest updates an information of application such as endpoints.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app_group_id</td>
+<td><a href="#string"> string</a></td>
+<td>app_group_id is the application group id.</td>
+</tr>
+<tr>
+<td>app_type</td>
+<td><a href="#apptype"> AppType</a></td>
+<td>app_type is a type of the application</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td><a href="#string"> string</a></td>
+<td>endpoints is an endpoint string.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><a href="#string"> string</a></td>
+<td>metadata is an unstructured metadata for application.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updatecspauthrequest">UpdateCSPAuthRequest<a class="headerlink" href="#updatecspauthrequest" title="Permanent link">&para;</a></h2>
+<p>UpdateCSPAuthRequest updates an authenticationg information for CSP.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>csp_id</td>
+<td><a href="#string"> string</a></td>
+<td>csp_id is .</td>
+</tr>
+<tr>
+<td>auth</td>
+<td><a href="#string"> string</a></td>
+<td>auth is an authentication info to update.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updateclusterconfrequest">UpdateClusterConfRequest<a class="headerlink" href="#updateclusterconfrequest" title="Permanent link">&para;</a></h2>
+<p>UpdateClusterConfRequest is used to update kubernetes cluster configuration
+to correspond with id</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is a cluster ID</td>
+</tr>
+<tr>
+<td>conf</td>
+<td><a href="#clusterconf"> ClusterConf</a></td>
+<td>conf is a kubernetes cluster configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="updateclusterstatusrequest">UpdateClusterStatusRequest<a class="headerlink" href="#updateclusterstatusrequest" title="Permanent link">&para;</a></h2>
+<p>UpdateClusterStatusRequest is used to change status of the cluster</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cluster_id</td>
+<td><a href="#string"> string</a></td>
+<td>cluster_id is a cluster ID</td>
+</tr>
+<tr>
+<td>status</td>
+<td><a href="#clusterstatus"> ClusterStatus</a></td>
+<td>status is the clusterstatus to be changed</td>
+</tr>
+<tr>
+<td>status_desc</td>
+<td><a href="#string"> string</a></td>
+<td>status_desc is a detail message of cluster status.</td>
+</tr>
+<tr>
+<td>workflow_id</td>
+<td><a href="#string"> string</a></td>
+<td>workflow_id is a argo workflow ID(name)</td>
+</tr>
+</tbody>
+</table>
+<!-- end Files -->
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            맨위로
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.integrate", "content.code.annotate", "content.tabs.link", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "search.config.lang": "en", "search.config.pipeline": " ", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\uac80\uc0c9", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version.title": "\ubc84\uc804 \uc120\ud0dd"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

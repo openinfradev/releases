@@ -2,7 +2,7 @@ site_name: SKT Enterprise Kubernetes Solution
 repo_name: openinfradev/releases
 repo_url: https://github.com/openinfradev/tks-service-info
 theme:
-  language: kr
+  language: ko
   name: material
   logo: assets/taco_icon.png
   font:
@@ -66,7 +66,7 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Quick Start: quickstart/2-0-0.md
-  - Release Note: releasenotes/2-0-0.md
+  - Release Note: releasenotes/3-0-0.md
   - Architecture:
       - "Overview": architecture/overviewarch.md
       - "GitOps Architecture": architecture/tksgitops.md
@@ -79,6 +79,7 @@ nav:
           - "tks cluster": cli/tks_cluster.md
           - "tks service": cli/tks_service.md
   - API Reference: api/2-0-0.md
+  - TKS Cloud Service: cloudservice/intro.md
   - Free Trial Service:
       - "About": ft/about.md
       - "Core Concepts": ft/core-concepts.md
